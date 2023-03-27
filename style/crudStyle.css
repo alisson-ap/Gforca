@@ -1,0 +1,102 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Comic Neue', cursive;
+    font-weight: normal;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.title-page{
+    margin: 30px;
+}
+
+.tables-crud{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    
+    margin-bottom: 50px;
+}
+
+
+.theme, .words, .tips{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 5px;
+}
+
+.list-theme, .list-words, .list-tips{
+    
+    background: rgba(128, 128, 128, 0.116);
+    padding: 10px;
+    width: 350px;
+    max-width: 400px;
+    min-width: 200px;
+    height: 300px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+
+
+
+
+.fotter{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 90%;
+}
+
+.buttom-theme , .buttom-words, .buttom-theme{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 90%;
+    
+    
+}
+
+ button{
+    background-color:#E3E0E0;
+    padding: 10px;
+    border:none;
+    font-size: 18px;
+    margin: 5px;
+    transition: 0.2s;
+    width: 50px;
+    cursor: pointer;
+}
+button:hover{
+    background-color:#c9c9c9;
+    transform: scale(1.1);
+}
+
+
+.buttom-footter > button, a>button{
+    
+    background-color:#E3E0E0;
+    padding: 10px;
+    border:none;
+    font-size: 18px;
+    width: 120px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.buttom-footter > button:hover , a>button:hover{
+    background-color:#c9c9c9;
+    width: 130px;
+}
