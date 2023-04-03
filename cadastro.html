@@ -4,51 +4,17 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Cadastro</title>
+	<link rel="stylesheet" href="style/cadastro.css">
+	<link rel="stylesheet" href="style/loading.css">
+
 </head>
 <style>
-	.container {
-	max-width: 500px;
-	margin: 0 auto;
-	padding: 20px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-}
 
-h1 {
-	text-align: center;
-	margin-bottom: 20px;
-}
-
-form {
-	display: flex;
-	flex-direction: column;
-}
-
-label {
-	margin-bottom: 5px;
-}
-
-input {
-	padding: 10px;
-	margin-bottom: 10px;
-	border-radius: 5px;
-	border: 1px solid #ccc;
-}
-
-button {
-	padding: 10px;
-	background-color: #4CAF50;
-	color: #fff;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-}
-
-button:hover {
-	background-color: #fff;
-}
 </style>
 <body>
+
+	
+	<div>
 	<div class="container">
 		<h1>Cadastro</h1>
 		<form>
@@ -63,10 +29,24 @@ button:hover {
 
 			<label for="confirmar-senha">Confirmar Senha:</label>
 			<input type="password" id="confirmar-senha" name="confirmar-senha" required>
-
-			<button type="submit">Cadastrar</button>
+			
+			<button type="button" onclick="register()">Cadastrar</button>
+			
 		</form>
+		<a href="login.html">Voltar</a>
 	</div>
-	<script src="script.js"></script>
+</div>
 </body>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>
+
+<script src="/Gforca/scripts/firebase-init.js"></script>
+
+<script src="scripts/cadastro.js"></script>
+<script src="scripts/loading.js"></script>
+
+
 </html>

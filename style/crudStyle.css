@@ -100,3 +100,10 @@ button:hover{
     background-color:#c9c9c9;
     width: 130px;
 }
+
+
+
+ul li:hover{
+    background: rgba(128, 128, 128, 0.349);
+    transform: scale(1.01);
+}

@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #1e272e;
+    font-family: sans-serif;
+  }
+  
+  .login-box {
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
+  
+  .login-box h2 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .user-box {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .user-box input:focus ~ label,
+  .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 12px;
+  }
+  
+  .user-box a {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: 40px;
+    background: #03a9f4;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+  
+  .user-box a:hover {
+    background: #fff;
+    color: #03a9f4;
+  }
