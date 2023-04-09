@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da forca - CRUD</title>
     <link rel="stylesheet" href="style/crudStyle.css">
+    <link rel="stylesheet" href="style/modal.css">
     <link rel="stylesheet" href="style/loading.css">
 
 
@@ -22,14 +23,14 @@
                 <h2>Tema</h2>
             </div>
             <div class="list-theme">
-                <ul class="table-theme-list" id="listTheme">
+                <ul class="tableWordsTheme" id="listTheme">
                     
                     
                 </ul>
             </div>
             <div class="buttom-theme">
                 <button type="button">-</button>
-                <button type="button">+</button>
+                <button type="button" id="openModalTheme">+</button>
             </div>
         </div>
 
@@ -38,13 +39,13 @@
                 <h2>Palavras</h2>
             </div>
             <div class="list-words">
-                    <ul class="table-words-list" id="listWords">
+                <ul class="tableWordsList" id="listWords">
                         
-                    </ul>
+                </ul>
             </div>
             <div class="buttom-words">
                 <button type="button">-</button>
-                <button type="button">+</button>
+                <button type="button" id="openModalWord" >+</button>
             </div>
         </div>
 
@@ -53,14 +54,14 @@
                 <h2>Facilitadores</h2>
             </div>
             <div class="list-tips">
-                <ul class="table-tips-list" id="listTips">
+                <ul class="tableTipsList" id="listTips">
                    
 
                 </ul>
             </div>
             <div class="buttom-theme">
                 <button type="button">-</button>
-                <button type="button">+</button>
+                <button type="button" id="openModalTip">+</button>
             </div>
         </div>
 
@@ -69,6 +70,74 @@
 
 
     </div>
+
+
+<div class="fade" ></div>
+
+<div class="hideTheme" style="display: none;">
+    <div class="modalTheme" >
+        <div class="countTheme">
+            <div class="titleTheme">
+                <h1>Adicionar Tema</h1>
+                <p id="descriptionTheme"></p>
+            </div>
+            <div class="inputTheme">
+                <label>Novo tema:</label>
+                <input id="nameTheme" type="text" placeholder="digite o tema">
+            </div>
+            <div class="buttonTheme">
+                <button onclick="CloseModal()" >cancelar</button>
+                <button onclick="addTheme()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hideWord" style="display: none;">
+    <div class="modalWord" >
+        <div class="countWord">
+            <div class="titleWord">
+                <h1>Adicionar Palavra</h1>
+                <p id="descriptionWord">palavra x</p>
+            </div>
+            <div class="inputWord">
+                .
+                <label>Novo Palavra:</label>
+                <input type="text" placeholder="digite a palavra">
+                <label>Dica:</label>
+                <input type="text" placeholder="digite a dica">
+            </div>
+            <div class="buttonWord">
+                <button onclick="CloseModal()" >cancelar</button>
+                <button>Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hideTip" style="display: none;">
+    <div class="modalTip" >
+        <div class="countTip">
+            <div class="titleTips">
+                <h1>Adicionar Dica</h1>
+                <p id="descriptionTips"></p>
+            </div>
+            <div class="inputTip">
+                <label>Novo Dica:</label>
+                <input type="text" placeholder="digite a dica">
+            </div>
+            <div class="buttonTip">
+                <button onclick="CloseModal()" >cancelar</button>
+                <button>Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+
+
+
 
     <div class="fotter">
 
@@ -87,7 +156,7 @@
 <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore-compat.js"></script>
 
-<script src="/Gforca/scripts/firebase-init.js"></script>
+<script src="scripts/firebase-init.js"></script>
 
 
 <script src="scripts/crud.js"></script>
