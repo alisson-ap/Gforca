@@ -96,11 +96,13 @@ function addAttrToList(attr, listId, id) {
 
   // adicionar um evento de clique para cada item da lista de temas
   const titleTheme = document.getElementById('titleTheme')
-  
+  const subTitleTheme = document.getElementById('subTitleTheme')
+
   themeList.addEventListener("click", (event) => {
     const themeId = event.target.id; // o ID do item clicado é o próprio ID do documento na coleção "themes"
     const themeName = event.target.textContent;
-    titleTheme.textContent = themeName;
+    titleTheme.innerHTML = "Palavras do Tema"
+    subTitleTheme.textContent = themeName;
     console.log(themeId)
     // limpar a lista de palavras
     wordList.innerHTML = "";
@@ -128,11 +130,12 @@ function addAttrToList(attr, listId, id) {
 // adicionar um evento de clique para cada item da lista de words
   
 const titleWord = document.getElementById('titleWord')
-
+const subTitleWord = document.getElementById('subTitleWord')
   wordList.addEventListener("click", (event) => {
     const wordId = event.target.id; // o ID da palavra clicada é o ID do documento na subcoleção "words"
     const wordName = event.target.textContent;
-    titleWord.textContent = wordName;
+    titleWord.innerHTML = "Dicas da Palavra"
+    subTitleWord.textContent = wordName;
 
     console.log(wordId);
   

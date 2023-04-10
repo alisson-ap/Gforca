@@ -31,7 +31,7 @@
 .title-words, .title-tips{ 
     display: flex;
 }
-.title-words>#titleTheme, .title-tips>#titleWord{ 
+.title-words>#subTitleTheme, .title-tips>#subTitleWord{ 
     margin-left: 5px;
     text-decoration: underline;
 }
