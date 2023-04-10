@@ -10,7 +10,7 @@
     
 }
 
-.modalTheme, .modalWord, .modalTip{
+.modalTheme, .modalWord, .modalTip, .popup{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -25,9 +25,18 @@
     z-index: 6;
     display: flex;
     justify-content: center;
-    transform: 2s;
     
 }
+
+.title-words, .title-tips{ 
+    display: flex;
+}
+.title-words>#titleTheme, .title-tips>#titleWord{ 
+    margin-left: 5px;
+    text-decoration: underline;
+}
+
+
 
 .countTheme, .countWord, .countTip{
     display: flex;
@@ -40,7 +49,7 @@
 }
 
 
-.inputTheme, .inputWord, .inputTip{
+.inputTheme,  .inputTip{
     width: 350px;
     display: inline-flex;
     flex-wrap: wrap;
@@ -48,14 +57,32 @@
     gap: 12px;
 }
 
+#formNewWord, #formNewTip{
+    width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 12px;
+}
 
 
 .inputTheme>label , .inputWord>label , .inputTip>label{
     font-size: 20px;
 }
 
-.buttonTheme>button, .buttonWord>button, .buttonTip>button {
+.buttonTheme>button, .buttonWord>button, .buttonTip>button, .popupBtn>button {
     width: 100px;
 }
 
 
+.popup{
+    width: 50%;
+    height: 50%;
+    align-items: center;
+}
+
+.popupContent>p{
+    font-size: 20px;
+    margin-bottom: 30px;
+}

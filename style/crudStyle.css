@@ -53,7 +53,6 @@
 
 
 
-
 .fotter{
     display: flex;
     flex-direction: row;
@@ -106,4 +105,10 @@ button:hover{
 ul li:hover{
     background: rgba(128, 128, 128, 0.349);
     transform: scale(1.01);
+    cursor: pointer;
 }
+
+
+.selected {
+    background-color: rgba(128, 128, 128, 0.884);
+  }

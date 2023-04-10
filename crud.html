@@ -20,16 +20,18 @@
     <div class="tables-crud">
         <div class="theme">
             <div class="title-theme">
-                <h2>Tema</h2>
+                <h2>Temas</h2>
             </div>
             <div class="list-theme">
                 <ul class="tableWordsTheme" id="listTheme">
-                    
-                    
                 </ul>
             </div>
             <div class="buttom-theme">
-                <button type="button">-</button>
+                
+                <abbr title="Clique aqui para deletar o tema selecionado">
+                    <button id="btnDeleteTheme" type="button">-</button>
+                </abbr>
+                
                 <button type="button" id="openModalTheme">+</button>
             </div>
         </div>
@@ -37,14 +39,18 @@
         <div class="words">
             <div class="title-words">
                 <h2>Palavras</h2>
+                <h2 id="titleTheme"> </h2>
             </div>
             <div class="list-words">
-                <ul class="tableWordsList" id="listWords">
-                        
+                <ul class="tableWordsList" id="listWords">    
                 </ul>
             </div>
             <div class="buttom-words">
-                <button type="button">-</button>
+                
+                <abbr title="Clique aqui para deletar a palavra selecionada">
+                    <button id="btnDeleteWord" type="button">-</button>
+                </abbr>
+                
                 <button type="button" id="openModalWord" >+</button>
             </div>
         </div>
@@ -52,15 +58,17 @@
         <div class="tips">
             <div class="title-tips">
                 <h2>Facilitadores</h2>
+                <h2 id="titleWord"></h2>
             </div>
             <div class="list-tips">
                 <ul class="tableTipsList" id="listTips">
-                   
-
                 </ul>
             </div>
             <div class="buttom-theme">
-                <button type="button">-</button>
+                
+                
+                    <button id="btnDeleteTip" type="button">-</button>
+                
                 <button type="button" id="openModalTip">+</button>
             </div>
         </div>
@@ -98,18 +106,21 @@
         <div class="countWord">
             <div class="titleWord">
                 <h1>Adicionar Palavra</h1>
-                <p id="descriptionWord">palavra x</p>
             </div>
             <div class="inputWord">
-                .
-                <label>Novo Palavra:</label>
-                <input type="text" placeholder="digite a palavra">
-                <label>Dica:</label>
-                <input type="text" placeholder="digite a dica">
+                <form id="formNewWord">
+                    <label>Escolha o tema</label>
+                    <select id="themeSelect" required></select>
+
+                    <label>Novo Palavra:</label>
+                    <input id="newWord" type="text" placeholder="digite a palavra">
+                    <label>Dica:</label>
+                    <textarea id="newTiptoWord" placeholder="Digite a dica da palavra" cols="30" rows="5"></textarea>
+                </form>
             </div>
             <div class="buttonWord">
                 <button onclick="CloseModal()" >cancelar</button>
-                <button>Salvar</button>
+                <button onclick="addWord()">Salvar</button>
             </div>
         </div>
     </div>
@@ -119,16 +130,25 @@
     <div class="modalTip" >
         <div class="countTip">
             <div class="titleTips">
-                <h1>Adicionar Dica</h1>
-                <p id="descriptionTips"></p>
+                <h1>Adicionar nova Dica</h1>
             </div>
             <div class="inputTip">
-                <label>Novo Dica:</label>
-                <input type="text" placeholder="digite a dica">
+                <form id="formNewTip">
+                    <label>Escolha o tema</label>
+                    <select id="themesSelect">
+                        <option value="">Selecione um tema</option>
+                    </select>
+                    
+                    <label>Escolha a palavra</label>
+                    <select id="wordSelect" required></select>
+                   
+                    <label>Nova Dica:</label>
+                    <textarea id="newTip" placeholder="Digite a dica da palavra" cols="30" rows="5"></textarea>
+                </form>
             </div>
             <div class="buttonTip">
                 <button onclick="CloseModal()" >cancelar</button>
-                <button>Salvar</button>
+                <button onclick="addTip()">Salvar</button>
             </div>
         </div>
     </div>
