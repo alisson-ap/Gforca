@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="style/modal.css">
     <link rel="stylesheet" href="style/loading.css">
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 </head>
 <body>
@@ -27,7 +29,10 @@
                 </ul>
             </div>
             <div class="buttom-theme">
-                
+                <button id="updateTheme" type="button">
+                    <img src="images/edit.svg" alt="">
+                </button>
+
                 <abbr title="Clique aqui para deletar o tema selecionado">
                     <button id="btnDeleteTheme" type="button">-</button>
                 </abbr>
@@ -46,7 +51,10 @@
                 </ul>
             </div>
             <div class="buttom-words">
-                
+                <button id="updateWord" type="button">
+                    <img src="images/edit.svg" alt="">
+                </button>
+
                 <abbr title="Clique aqui para deletar a palavra selecionada">
                     <button id="btnDeleteWord" type="button">-</button>
                 </abbr>
@@ -65,9 +73,15 @@
                 </ul>
             </div>
             <div class="buttom-theme">
-                    <abbr title="Clique aqui para deletar uma dica selecionada">
-                        <button id="btnDeleteTip" type="button">-</button>
-                    </abbr>
+                <button id="updateTip" type="button">
+                    <img src="images/edit.svg" alt="">
+                </button>
+                    
+                <abbr title="Clique aqui para deletar uma dica selecionada">
+                    <button id="btnDeleteTip" type="button">-</button>
+                
+                </abbr>
+                
                 <button type="button" id="openModalTip">+</button>
             </div>
         </div>
@@ -161,12 +175,9 @@
     <div class="fotter">
 
         <div class="buttom-footter">
-            <button type="button">Salvar</button>
-
             <a href="index.html">
                 <button type="button">Voltar</button>
             </a>
-            
         </div>
     </div>
 </div>

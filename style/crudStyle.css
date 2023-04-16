@@ -112,3 +112,7 @@ ul li:hover{
 .selected {
     background-color: rgba(128, 128, 128, 0.884);
   }
+
+img{
+    height: 20px;
+}

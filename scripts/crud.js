@@ -35,8 +35,6 @@ let selectedItemTip = "";
 let selectedNameTip = "";
 
 
-
-
 // Função para exibir um atributo em uma lista
 function addAttrToList(attr, listId, id) {
     const ul = document.getElementById(listId);
@@ -47,7 +45,7 @@ function addAttrToList(attr, listId, id) {
     ul.appendChild(li);
   }
 
-
+//exibe na lista o theme e words cadastrados no banco
   themeRef.get().then((querySnapshot) => {
     const themeSelect = document.getElementById("themeSelect");
     querySnapshot.forEach((doc) => {
@@ -68,13 +66,7 @@ function addAttrToList(attr, listId, id) {
         querySnapshot.forEach((doc) => {
           const nameWord = doc.data().namewords;
           const wordId = doc.id; // obter o id do documento
-          // const optionWord = document.createElement("option")
-          // optionWord.value = wordId;
-          // optionWord.textContent = nameWord;
-          // wordSelect.appendChild(optionWord);
-          
       
-          //console.log(nameWord, wordId)
           addAttrToList(nameWord, "listWords", wordId); // passar o id como argumento
   
             // const tipsRef = wordRef.doc(doc.id).collection("tips");
@@ -89,9 +81,6 @@ function addAttrToList(attr, listId, id) {
       });
     });
   });
-
-
-
 
 
   // adicionar um evento de clique para cada item da lista de temas
@@ -164,9 +153,7 @@ const subTitleWord = document.getElementById('subTitleWord')
     });
   });
 
-
-
-// controle do modal
+// controle do modal - create
 
 const openModalTheme = document.getElementById('openModalTheme')
 const openModalWord = document.getElementById('openModalWord')
@@ -186,7 +173,6 @@ function CloseModal(){
   modalWord.style.display = "none"
   modalTip.style.display = "none"
   nameTheme.value = "";
-
 }
 
 openModalTheme.addEventListener("click", (event)=>{
@@ -207,7 +193,6 @@ openModalTips.addEventListener("click", (event)=>{
 
 //CREATE > 
 // theme
-
 function addTheme() {
   const nameTheme = document.getElementById("nameTheme").value;
   
@@ -235,13 +220,10 @@ function addTheme() {
 }
 
 // word
-
 const themeSelect = document.getElementById('themeSelect');
 const newWord = document.getElementById('newWord');
 const newTiptoWord = document.getElementById('newTiptoWord');
 const formNewWor = document.getElementById("formNewWord")
-
-
 
 function addWordToTheme(themeId, newWord, newTip) {
   const wordsRef = themeRef.doc(themeId).collection("words");
@@ -276,7 +258,6 @@ function addWord(){
   addWordToTheme(themeSelect.value, newWord.value, newTiptoWord.value)
   console.log(themeSelect.value, newWord.value, newTiptoWord.value)
 }
-
 
 //Tips
 const themesSelect = document.querySelector('#themesSelect');
@@ -321,7 +302,6 @@ themesSelect.addEventListener('change', (event) => {
     });
 });
 
-
 function addTip() {
   const themeId = themesSelect.value;
   const wordId = wordSelect.value;
@@ -352,8 +332,6 @@ function addTip() {
       console.error('Erro ao adicionar dica: ', error);
     });
 }
-
-
 
 
 // adicionar ouvinte de eventos click na lista de temas
@@ -448,12 +426,6 @@ function deleteTip() {
   }
 }
 
-
-
-
-
-
-
 //word
 function deleteWord(){
   if(selectedItemWord){
@@ -539,8 +511,6 @@ function showConfirmPopup(itemName, deteleFunction) {
     fade.style.display = "none";
     //
   });
-  popupContent.appendChild(popupBtn);
-  popupBtn.appendChild(confirmBtn);
 
   const cancelBtn = document.createElement("button");
   
@@ -551,6 +521,7 @@ function showConfirmPopup(itemName, deteleFunction) {
   });
   popupContent.appendChild(popupBtn);
   popupBtn.appendChild(cancelBtn);
+  popupBtn.appendChild(confirmBtn);
 
   document.body.appendChild(popup); // adiciona o popup ao final do body
 }
@@ -595,15 +566,166 @@ btnDeleteTheme.addEventListener("click", (event) => {
 })
 
 
-//editar
+//editar - update
+//funcoes de update - tip
+function updateTip(newTip){
+ 
+  if(selectedItemTip){
+    themeRef.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const themeId = doc.id;
+        const wordsRef = themeRef.doc(themeId).collection("words");
+        wordsRef.get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            const wordId = doc.id;
+            const tipsRef = wordsRef.doc(wordId).collection("tips");
+            tipsRef.doc(selectedItemTip).update({ nameTips: newTip }).then(() => {
+              console.log("Dica atualizada com sucesso!");
+              reloadPage();
+            }).catch((error) => {
+              console.error("Erro ao atualizar a dica: ", error);
+            });
+          });
+        });
+      });
+    }).catch((error) => {
+      console.error("Erro ao buscar as dicas: ", error);
+    });
+  }else{
+    console.log("Selecione uma dica")
+  }
+}
+//word
+  function updateWord(newWord){
+    if(selectedItemWord){
+      themeRef.get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const themeId = doc.id;
+          const wordsRef = themeRef.doc(themeId).collection("words");
+          wordsRef.doc(selectedItemWord).update({ namewords: newWord }).then(() => {
+            console.log("Palavra atualizada com sucesso!");
+            reloadPage();
+          }).catch((error) => {
+            console.error("Erro ao atualizar a palavra: ", error);
+          });
+        });
+      }).catch((error) => {
+        console.error("Erro ao buscar as palavras: ", error);
+      });
+    }else{
+      console.log("Selecione uma palavra")
+    }
+  }
+//theme
+  function updateTheme(newTheme) {
+    if (selectedItemTheme) {
+      themeRef.doc(selectedItemTheme).update({ nametheme: newTheme }).then(() => {
+        console.log("Tema atualizado com sucesso!");
+        reloadPage();
+      }).catch((error) => {
+        console.error("Erro ao atualizar o tema: ", error);
+      });
+    } else {
+      console.log("Selecione um tema");
+    }
+  }
+
+// funcão do modal de update
+function showUpdatePopup(nameItem, updateFunction) {
+  
+  var tipo = "";
+  const popup = document.createElement("div");
+  const popupContent = document.createElement("div");
+  const popupBtn = document.createElement("div");
+  const message = document.createElement("p");
+  const input = document.createElement("input")
+  //const textarea = document.createElement("textarea")
+  
+  popup.setAttribute("class", "popup");
+  popupContent.setAttribute("class", "popupContent");
+  popupBtn.setAttribute("class", "popupBtn");
+  input.setAttribute("id", "newDescription");
+
+  if(nameItem === selectedNameTip){
+    message.textContent = `Alterar descrição da dica - "${nameItem}", para:`;
+    input.setAttribute("placeholder", "Digite a nova descrição da dica...");
+    tipo = "DICA"
+  }else if (nameItem === selectedNameWord){
+    message.textContent = `Alterar nome da palavra - "${nameItem}", para:`;
+    input.setAttribute("placeholder", "Digite o novo nome da palavra...");
+    tipo = "PALAVRA"
+  }else if(nameItem === selectedNameTheme){
+    message.textContent = `Alterar nome do tema - "${nameItem}", para:`;
+    input.setAttribute("placeholder", "Digite o novo nome do tema...");
+    tipo = "TEMA"
+  }
+
+    popup.appendChild(popupContent)
+    popupContent.appendChild(message);
+    popupContent.appendChild(input);
+
+  const confirmBtn = document.createElement("button");
+  confirmBtn.textContent = "Salvar";
+  confirmBtn.addEventListener("click", () => {
+    const newDescription = document.getElementById('newDescription').value
+    alert(tipo + " alterado de: " + "'" + nameItem +"'"+ " , para: " + "'"+newDescription + "'" + " com sucesso!") 
+    console.log(newDescription)
+    updateFunction(newDescription)
+    popup.remove();
+    fade.style.display = "none";
+  });
+
+  const cancelBtn = document.createElement("button");
+  
+  cancelBtn.textContent = "Cancelar";
+  cancelBtn.addEventListener("click", () => {
+    popup.remove();
+    fade.style.display = "none"; // remove o popup da tela
+  });
+
+  popupContent.appendChild(popupBtn);
+  
+  popupBtn.appendChild(cancelBtn);
+  popupBtn.appendChild(confirmBtn);
+
+  document.body.appendChild(popup); // adiciona o popup ao final do body
+}
+
+//Botoes de controle
+const btnUpdateTheme = document.getElementById('updateTheme')
+btnUpdateTheme.addEventListener("click", () => {
+  if(selectedNameTheme === ""){
+    alert("selecione um Tema");
+  }else{
+    
+    showUpdatePopup(selectedNameTheme, updateTheme)
+    fade.style.display = "inline";
+  }
+});
 
 
+const btnUpdateWord = document.getElementById('updateWord')
+btnUpdateWord.addEventListener("click", () => {
+  if(selectedNameWord === ""){
+    alert("selecione uma palavra");
+  }else{
+    
+    showUpdatePopup( selectedNameWord, updateWord)
+    fade.style.display = "inline";
+  }
+});
 
 
-
-
-
-
+const btnUpdateTip = document.getElementById('updateTip')
+btnUpdateTip.addEventListener("click", () => {
+  if(selectedNameTip === ""){
+    alert("selecione uma dica");
+  }else{
+    
+    showUpdatePopup(selectedNameTip, updateTip)
+    fade.style.display = "inline";
+  }
+});
 
 
 
@@ -612,73 +734,73 @@ btnDeleteTheme.addEventListener("click", (event) => {
 
 // lista de palavras cadastradas 
 
-const wordsWithTips = [];
+// const wordsWithTips = [];
 
-// Percorrer todos os temas cadastrados
-themeRef.get().then((querySnapshot) => {
-  const promises = []; // Array para armazenar todas as promessas
+// // Percorrer todos os temas cadastrados
+// themeRef.get().then((querySnapshot) => {
+//   const promises = []; // Array para armazenar todas as promessas
 
-  querySnapshot.forEach((themeDoc) => {
-    const themeId = themeDoc.id;
-    const themeName = themeDoc.data().nametheme;
+//   querySnapshot.forEach((themeDoc) => {
+//     const themeId = themeDoc.id;
+//     const themeName = themeDoc.data().nametheme;
 
-    // Percorrer todas as palavras cadastradas dentro do tema atual
-    const wordsRef = themeRef.doc(themeId).collection("words");
-    const promise = wordsRef.get().then((querySnapshot) => {
-      const wordPromises = []; // Array para armazenar todas as promessas
+//     // Percorrer todas as palavras cadastradas dentro do tema atual
+//     const wordsRef = themeRef.doc(themeId).collection("words");
+//     const promise = wordsRef.get().then((querySnapshot) => {
+//       const wordPromises = []; // Array para armazenar todas as promessas
 
-      querySnapshot.forEach((wordDoc) => {
-        const wordId = wordDoc.id;
-        const wordName = wordDoc.data().namewords;
-        const wordTips = [];
+//       querySnapshot.forEach((wordDoc) => {
+//         const wordId = wordDoc.id;
+//         const wordName = wordDoc.data().namewords;
+//         const wordTips = [];
 
-        // Percorrer todas as dicas cadastradas para a palavra atual
-        const tipsRef = wordsRef.doc(wordId).collection("tips");
-        const wordPromise = tipsRef.get().then((querySnapshot) => {
-          querySnapshot.forEach((tipDoc) => {
-            const tipId = tipDoc.id;
-            const tipText = tipDoc.data().nameTips;
+//         // Percorrer todas as dicas cadastradas para a palavra atual
+//         const tipsRef = wordsRef.doc(wordId).collection("tips");
+//         const wordPromise = tipsRef.get().then((querySnapshot) => {
+//           querySnapshot.forEach((tipDoc) => {
+//             const tipId = tipDoc.id;
+//             const tipText = tipDoc.data().nameTips;
 
-            // Adicionar a dica ao array de dicas da palavra atual
-            wordTips.push({
-              id: tipId,
-              nameTips: tipText,
-            });
-          });
-        });
+//             // Adicionar a dica ao array de dicas da palavra atual
+//             wordTips.push({
+//               id: tipId,
+//               nameTips: tipText,
+//             });
+//           });
+//         });
 
-        wordPromises.push(wordPromise);
+//         wordPromises.push(wordPromise);
 
-        // Adicionar a palavra com todas as suas dicas ao array de palavras com dicas
-        wordsWithTips.push({
-          theme: themeName,
-          word: wordName,
-          tips: wordTips,
-        });
-      });
+//         // Adicionar a palavra com todas as suas dicas ao array de palavras com dicas
+//         wordsWithTips.push({
+//           theme: themeName,
+//           word: wordName,
+//           tips: wordTips,
+//         });
+//       });
 
-      return Promise.all(wordPromises);
-    });
+//       return Promise.all(wordPromises);
+//     });
 
-    promises.push(promise);
-  });
+//     promises.push(promise);
+//   });
 
-  // Esperar todas as promessas serem concluídas antes de continuar
-  return Promise.all(promises);
-}).then(() => {
-  // Todos os dados foram recuperados do Firebase
-  console.log(wordsWithTips);
-  console.log(wordsWithTips.length);
-}).catch((error) => {
-  console.error("Erro ao buscar as palavras com dicas: ", error);
-});
+//   // Esperar todas as promessas serem concluídas antes de continuar
+//   return Promise.all(promises);
+// }).then(() => {
+//   // Todos os dados foram recuperados do Firebase
+//   console.log(wordsWithTips);
+//   console.log(wordsWithTips.length);
+// }).catch((error) => {
+//   console.error("Erro ao buscar as palavras com dicas: ", error);
+// });
 
 
 
-function getRandomWordWithTips() {
-  const randomIndex = Math.floor(Math.random() * wordsWithTips.length);
-  return wordsWithTips[randomIndex];
-}
+// function getRandomWordWithTips() {
+//   const randomIndex = Math.floor(Math.random() * wordsWithTips.length);
+//   return wordsWithTips[randomIndex];
+// }
 
 
 
