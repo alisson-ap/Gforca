@@ -11,11 +11,36 @@
 <body>
  
 <div class="main">
-    <div class="bottom-link">
+    
+        
+        
+
+        <div class="content">
+            <div class="perfil">
+                <div class="avatar">
+                    <img src="" alt="">
+                </div>
+                <div class="email">
+                    <p>Email:</p>
+                    <p id="emailPerfil"></p>
+                </div>
+                <div class="nome">
+                    <p>Nome:</p>
+                    <p id="nomePerfil"></p>
+                </div>
+                <div class="moedas">
+                    <p>Moedas:</p>
+                    <p id="moedasPerfil"></p>
+                </div>
+                <a href="#">Comprar Moedas</a>
+    
+                <a href="#" onclick="logout()">Sair</a>
+            </div>
+
+        </div>
+        
         
         <a href="crud.html" class="hide" id="crud">Page CRUD</a>
-        <a href="#" onclick="logout()">Sair</a>
-    </div>
 </div>
 
 
@@ -25,10 +50,13 @@
 
 <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore-compat.js"></script>
 
 <script src="/scripts/firebase-init.js"></script>
 
 <script src="scripts/index.js"></script>
+
+
 <script src="scripts/loading.js"></script>
 <script src="scripts/auth.js"></script>
 </html>

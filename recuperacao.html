@@ -3,28 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="../css/style.css"/>
   <meta charset="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
-  <title>DIFÍCULDADE</title>
+  <link rel="stylesheet" href="style/loading.css">
+  <title>Recuperar senha</title>
 </head>
 <body>
+  <div class="content">
+    <div>
+      <h1>RECUPERE SUA CONTA</h1>
+    </div>
 
-<section class="tudo">
-  
-  <div>
-    <h1>RECUPERE SUA CONTA</h1>
+    
+      <input id="recuperarEmail" type="email" placeholder="digite seu e-mail">
+    
+
+    <div class="botao">
+      <button onclick="recuperarSenha()" >ENVIAR</button>
+      <a href="index.html">voltar ao login</a>
+    </div>
   </div>
-
-  <div class="box">
-    <input class="box" type="text" placeholder="digite seu e-mail" name="e-mail">
-  </div>
-
-  <div class="botao">
-  <button>ENVIAR</button>
-  <button>voltar ao login</button>
-  </div>
-
-</section>
-
 </body>
+<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>
+
+<script src="scripts/firebase-init.js"></script>
+<script src="scripts/loading.js"></script>
+<script src="scripts/recuperacao.js"></script>
 </html>

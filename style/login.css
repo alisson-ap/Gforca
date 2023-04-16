@@ -1,76 +1,96 @@
-* {
+*{
+    font-family: 'Comic Neue', cursive; 
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-  }
+}
   
-  body {
-    background: #1e272e;
-    font-family: sans-serif;
-  }
+body {
+    width: 100vw;
+    height: 90vh;
+    background: #d9d9d9;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
   
-  .login-box {
-    width: 280px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-  }
+.login-box {
+    width: 400px;
+    height: 400px;
+    background: #ffffff;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    
+}
   
-  .login-box h2 {
-    text-align: center;
+.login-box h2 {
     margin-bottom: 40px;
-  }
+    font-weight: 50;
+    font-size: 40px;
+    
+    
+}
   
-  .user-box {
-    position: relative;
-    margin-bottom: 20px;
-  }
+.user-box{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 70%;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+.recuperacao{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+button{
+  background-color:#E3E0E0;
+  border:none;
+  font-size: 20px;
+  width: 60%;
+  height: 50px;
+  margin-top: 30px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+button:hover, button:focus{
+  width: 70%;
+  background-color:#d5d3d3fd;
+}
   
-  .user-box input {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent;
-  }
+a, p, label{
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.btnCad>p>a{
+  text-decoration: none;
+  font-weight: bold;
   
-  .user-box label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    pointer-events: none;
-    transition: 0.5s;
-  }
+}
   
-  .user-box input:focus ~ label,
-  .user-box input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #03a9f4;
-    font-size: 12px;
-  }
+ 
   
-  .user-box a {
-    display: inline-block;
-    text-align: center;
-    padding: 10px 20px;
-    margin-top: 40px;
-    background: #03a9f4;
-    color: #fff;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: 0.5s;
-  }
+
   
-  .user-box a:hover {
-    background: #fff;
-    color: #03a9f4;
-  }
+ 
+  

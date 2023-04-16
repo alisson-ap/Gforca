@@ -1,44 +1,40 @@
 firebase.auth().onAuthStateChanged((user) => {
     if(user){
-        showLoading()
+        //showLoading()
         window.location.replace('index.html');
     }else{
-        showLoading()
+       // showLoading()
         console.log("Não está logado");
-        hideLoading()
+        //hideLoading()
     }
-
   });
 
 const email = document.getElementById('email')
 const password = document.getElementById('password')
+const btnLogin = document.getElementById('btnLogin')
 
 
-function login() {
-    showLoading()
-  firebase.auth().signInWithEmailAndPassword(
-    email.value, password.value
-    ).then(response => {
-        hideLoading()
-        window.location.href = "index.html";
+btnLogin.addEventListener("click", () => {
+  console.log(email.value, password.value)
+  if(!email.value || !password.value){
+    alert("Preencha os campos")
+    return
+  }
 
-  }).catch(error => {
-    hideLoading()
-    alert("Email ou senha incorreto!")
-        console.log('deu errado', error)
-  });    
-}
-
-function recuperarSenha(){
-    showLoading()
-    firebase.auth().sendPasswordResetEmail(email.value).then(()=>{
+  showLoading()
+  firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+    .then(response => {
       hideLoading()
-      alert("Email enviado com sucesso")  
-    }).catch(error =>{
-        hideLoading()
-        alert("Email ou senha invalido!")
+      window.location.href = "index.html";
     })
-}
+    .catch(error => {
+      hideLoading()
+      console.log('deu errado', error);
+      alert("Email ou senha incorreto!");
+    });
+});
+
+
 
 
 
