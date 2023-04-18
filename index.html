@@ -7,44 +7,55 @@
     <title>jogo da forca</title>
     <link rel="stylesheet" href="style/index.css">
     <link rel="stylesheet" href="style/loading.css">
+    <script src="scripts/loading.js"></script>
 </head>
 <body>
- 
-<div class="main">
-    
-        
-        
 
-        <div class="content">
+    <div class="main">
             <div class="perfil">
+                
                 <div class="avatar">
-                    <img src="" alt="">
+                    <img src="images/profile3.png" alt=""  height="42" width="42">
                 </div>
-                <div class="email">
-                    <p>Email:</p>
-                    <p id="emailPerfil"></p>
+                    
+                        
+                <p id="nomePerfil">-</p>
+                <p id="emailPerfil">-</p>
+                <button>Editar</button>
+                        
+                <div id="coins" class="hide">
+                    <div class="moedas" >
+                        <p>Moedas:</p>
+                        <p id="moedasPerfil">-</p>
+                    </div>
+               
+                    <button id="btnMoedas">Comprar Moedas</button>
+
                 </div>
-                <div class="nome">
-                    <p>Nome:</p>
-                    <p id="nomePerfil"></p>
-                </div>
-                <div class="moedas">
-                    <p>Moedas:</p>
-                    <p id="moedasPerfil"></p>
-                </div>
-                <a href="#">Comprar Moedas</a>
-    
-                <a href="#" onclick="logout()">Sair</a>
+                   
+                <button onclick="logout()">Sair</button>
             </div>
+    
+            <div class="content">
+                <div class="title">
+                    <p>jogo da</p>
+                    <h1>Forca</h1>
+                </div>
 
-        </div>
-        
-        
-        <a href="crud.html" class="hide" id="crud">Page CRUD</a>
-</div>
+                <div class="gif">
+                    <img src="images/img1.gif" alt="">
+                    <div class="tutorial">
+                        <p>Objetivo do jogo:</p>
+                        <p>O objetivo deste jogo é o de adivinhar qual a palavra que está oculta. A informação inicial que o jogador dispõe é a do número de letras que compõem a palavra, estando estas letras representadas por traços.</p>
+                    </div>
+                </div>
 
-
-
+                <div class="btn">
+                    <button id="buttonGame" class="hide" >Jogar</button>
+                    <button id="crud" class="hide">Gerenciar dados</button>
+                </div>
+            </div>  
+    </div>
 </body>
 
 
@@ -54,9 +65,11 @@
 
 <script src="/scripts/firebase-init.js"></script>
 
+
+
+
+
 <script src="scripts/index.js"></script>
-
-
-<script src="scripts/loading.js"></script>
 <script src="scripts/auth.js"></script>
+
 </html>

@@ -9,6 +9,7 @@
     align-items: center;
     color: azure;
     font-size: 24px;
+    z-index: 9999;
 }
 
 
