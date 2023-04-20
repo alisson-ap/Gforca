@@ -57,7 +57,7 @@
     gap: 12px;
 }
 
-#formNewWord, #formNewTip{
+#formNewWord, #formNewTip, #formNewTheme{
     width: 350px;
     display: flex;
     flex-wrap: wrap;

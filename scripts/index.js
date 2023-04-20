@@ -20,7 +20,7 @@ buttonCrud.addEventListener('click' , ()=>{
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user){
-        if(user.email == "teste@gmail.com"){
+        if(user.email == "admin@gmail.com"){
           
             buttonCrud.classList.toggle("hide")
             

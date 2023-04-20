@@ -13,9 +13,9 @@ body {
     justify-content: center;
     align-items: center;
     transition: 0.3s;
-    background-image: url("/images/papel.jpg");
+    /* background-image: url("/images/papel.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 
 }
   

@@ -5,6 +5,12 @@
     font-weight: normal;
 }
 
+/* body{
+    background-image: url("/images/papel.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
 .hide{
     display: none;
 }
@@ -18,6 +24,7 @@
     align-items: center;
     gap: 40px;
     margin: 40px;
+    background: white;
 }
 
 
@@ -49,7 +56,7 @@
     border: 6px solid rgb(205, 205, 205);
     margin-bottom: 10px;
     transition: 0.2s;
-    padding: 5px;
+    
 
 }
 
