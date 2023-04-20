@@ -3,27 +3,8 @@
 // colocar no perfil do usuario o tipo de user
 // e verificar o tipo no login
 
-
-// ao adicionar uma dica para palavra selecionada
-
-
-// ao adicionar um tema obrigatoriamente ter uma palavra e uma dica
-//varificar se já existe um tema com o mesmo nome
-
-
 // criar uma função para selecinar uma dica e trazer as palavras aleatoria
-
-
 // e comparar uma outra função que traga todas palavras com temas
-
-
-
-
-
-
-
-
-
 
 
 
@@ -76,7 +57,6 @@ function addAttrToList(attr, listId, id) {
 
 //exibe na lista o theme e words cadastrados no banco
   themeRef.get().then((querySnapshot) => {
-    //const themeSelect = document.getElementById("themeSelect");
     querySnapshot.forEach((doc) => {
 
       
@@ -85,10 +65,8 @@ function addAttrToList(attr, listId, id) {
       const optionTheme = document.createElement("option")
       optionTheme.value = themeId;
       optionTheme.textContent = nameTheme;
-      //themeSelect.appendChild(optionTheme);
 
       addAttrToList(nameTheme, "listTheme", themeId); // passar o id como argumento
-  
       const wordRef = themeRef.doc(doc.id).collection("words");
       wordRef.get().then((querySnapshot) => {
         
@@ -320,42 +298,6 @@ const wordSelect = document.getElementById("wordSelect");
 const formNewTip = document.getElementById("formNewWord")
 const listTips = document.getElementById("listTips")
 
-
-// themeRef.get().then((querySnapshot) => {
-//   querySnapshot.forEach((doc) => {
-//     const theme = doc.data();
-//     const option = document.createElement('option');
-//     option.value = doc.id;
-//     option.textContent = theme.nametheme;
-//     themesSelect.appendChild(option);
-//   });
-// });
-
-// themesSelect.addEventListener('change', (event) => {
-//   const themeId = event.target.value;
-//   // Limpa a lista de seleção de palavras
-//   wordSelect.innerHTML = '<option value="">Selecione uma palavra</option>';
-
-//   // Preenche a lista de seleção de palavras com as palavras relacionadas ao tema selecionado
-//   themeRef
-//     .doc(themeIdd)
-//     .collection('words')
-//     .get()
-//     .then((querySnapshot) => {
-//       querySnapshot.forEach((doc) => {
-//         const word = doc.data();
-//         const option = document.createElement('option');
-//         option.value = doc.id;
-//         option.textContent = word.namewords;
-//         wordSelect.appendChild(option);
-//         console.log(option.textContent)
-//       });
-//     })
-//     .catch((error) => {
-//       console.error('Erro ao buscar palavras: ', error);
-//     });
-// });
-
 function addTip(){
   const wordId = selectedItemWord
   const newTip = newTipInput.value;
@@ -392,8 +334,6 @@ function addTip(){
     console.log("Selecione uma palavra")
   }
 }
-
-
 
 
 // adicionar ouvinte de eventos click na lista de temas
