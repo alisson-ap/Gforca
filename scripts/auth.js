@@ -1,5 +1,8 @@
 firebase.auth().onAuthStateChanged(user => {
     if(!user){
-        window.location.href = "login.html";
+        showLoading()
+        setTimeout(()=>{
+            window.location.href = "login.html";
+        }, 500);
     }
 })

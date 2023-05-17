@@ -14,26 +14,46 @@
 <body>
 
 	
-	<div>
+<div class="main">
 	<div class="container">
-		<h1>Cadastro</h1>
-		<form>
-			<label for="nome">Nome:</label>
-			<input type="text" id="nome" name="nome" required>
-
-			<label for="email">Email:</label>
-			<input type="email" id="email" name="email" required>
-
-			<label for="senha">Senha:</label>
-			<input type="password" id="senha" name="senha" required>
-
-			<label for="confirmar-senha">Confirmar Senha:</label>
-			<input type="password" id="confirmar-senha" name="confirmar-senha" required>
+		<div class="title">
+			<h1>Cadastro</h1>
+		</div>
+		<div class="form">
 			
-			<button type="button" onclick="register()">Cadastrar</button>
 			
-		</form>
-		<a href="login.html">Voltar</a>
+				<div class="input">
+					<label for="nome">nome</label>
+					<input type="text" id="nome" name="nome" required>
+				</div>
+	
+				<div class="input">
+					<label for="email">e-mail</label>
+					<input type="email" id="email" name="email" required>
+				</div>
+					
+				
+				<div class="input">
+					<label for="senha">senha</label>
+					<input type="password" id="senha" name="senha" required>
+	
+				</div>
+					
+				<div class="input">
+					<label for="confirmar-senha">confirmação de senha</label>
+					<input type="password" id="confirmarSenha" name="confirmar-senha" required>
+					<p id="textPassaword"></p>	
+				</div>
+
+					
+		</div>
+		<div class="btn">
+			<button type="button" onclick="checkForm()">Cadastrar</button>
+		</div>	
+		<div class="back" >
+			<a href="login.html">Voltar</a>
+		</div>
+		
 	</div>
 </div>
 </body>

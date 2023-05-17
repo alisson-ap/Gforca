@@ -8,6 +8,6 @@ function recuperarSenha(){
       alert("Email enviado com sucesso")  
     }).catch(error =>{
         hideLoading()
-        alert("Email ou senha invalido!")
+        alert("Email invalido!")
     })
 }

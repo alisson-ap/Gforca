@@ -23,7 +23,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 40px;
-    margin: 40px;
+    padding: 40px;
     background: white;
 }
 
@@ -150,7 +150,7 @@ button:hover, a:hover{
     transform: scale(1.4);
 }
 #buttonGame{
-    cursor:not-allowed;
+    cursor:pointer;
 }
 #buttonGame:hover{
     background-color:#767676;

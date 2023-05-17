@@ -1,11 +1,13 @@
-//verifica o user admin
 //to-do
+//verifica o user admin
 // colocar no perfil do usuario o tipo de user
 // e verificar o tipo no login
 
 // criar uma função para selecinar uma dica e trazer as palavras aleatoria
 // e comparar uma outra função que traga todas palavras com temas
 
+
+// separar funçoes do crud em arquivos separados 
 
 
 
@@ -87,16 +89,23 @@ function addAttrToList(attr, listId, id) {
   // adicionar um evento de clique para cada item da lista de temas
   const titleTheme = document.getElementById('titleTheme')
   const subTitleTheme = document.getElementById('subTitleTheme')
+  const titleWord = document.getElementById('titleWord')
+  const subTitleWord = document.getElementById('subTitleWord')
+
 
   themeList.addEventListener("click", (event) => {
     const themeId = event.target.id; // o ID do item clicado é o próprio ID do documento na coleção "themes"
     const themeName = event.target.textContent;
     titleTheme.innerHTML = "Palavras do Tema"
     subTitleTheme.textContent = themeName;
+    titleWord.innerHTML = "Dicas";
+    subTitleWord.innerHTML = "";
+
     console.log(themeId)
     // limpar a lista de palavras
     wordList.innerHTML = "";
     tipslist.innerHTML = "";
+
     selectedItemWord = "";
     selectedNameWord = "";
     selectedItemTip = "";
@@ -119,8 +128,7 @@ function addAttrToList(attr, listId, id) {
 
 // adicionar um evento de clique para cada item da lista de words
   
-const titleWord = document.getElementById('titleWord')
-const subTitleWord = document.getElementById('subTitleWord')
+
   wordList.addEventListener("click", (event) => {
     const wordId = event.target.id; // o ID da palavra clicada é o ID do documento na subcoleção "words"
     const wordName = event.target.textContent;
@@ -255,37 +263,43 @@ const formNewWor = document.getElementById("formNewWord")
 
 function addWordToTheme(themeId, newWord, newTip) {
   const wordsRef = themeRef.doc(themeId).collection("words");
-  const newWordRef = wordsRef.doc(); // o Firestore gera automaticamente um ID para o novo documento
-  newWordRef.set({
-    namewords: newWord
-  }).then(() => {
-    // adiciona a dica como subcoleção da nova palavra
-    newWordRef.collection("tips").add({
-      nameTips: newTip
-    }).then(() => {
-      formNewWor.reset();
-      CloseModal()
-      alert("Nova palavra adicionada com sucesso!")
-      console.log("Nova palavra adicionada com sucesso!");
-      reloadPage()
-    }).catch((error) => {
-      console.error("Erro ao adicionar a dica: ", error);
-    });
+  
+  // Verifica se a palavra já existe em minúsculas
+  wordsRef.where("namewords", "==", newWord.toLowerCase()).get().then((querySnapshot) => {
+    if (!querySnapshot.empty) {
+      // Se a consulta retornar documentos, a palavra já existe, então você pode lidar com isso aqui
+      alert("A palavra já existe na coleção");
+    } else {
+      // Se a consulta não retornar documentos, a palavra não existe, então você pode adicioná-la
+      const newWordRef = wordsRef.doc(); // o Firestore gera automaticamente um ID para o novo documento
+      newWordRef.set({
+        namewords: newWord.toLowerCase() // Salva em minúsculas
+      }).then(() => {
+        // adiciona a dica como subcoleção da nova palavra
+        newWordRef.collection("tips").add({
+          nameTips: newTip
+        }).then(() => {
+          formNewWor.reset();
+          CloseModal()
+          alert("Nova palavra adicionada com sucesso!")
+          console.log("Nova palavra adicionada com sucesso!");
+          reloadPage()
+        }).catch((error) => {
+          console.error("Erro ao adicionar a dica: ", error);
+        });
+      }).catch((error) => {
+        console.error("Erro ao adicionar a nova palavra: ", error);
+      });
+    }
   }).catch((error) => {
-    console.error("Erro ao adicionar a nova palavra: ", error);
+    console.error("Erro ao verificar a existência da palavra: ", error);
   });
 }
 
 function addWord(){
-  if(selectedItemTheme==""){
-    alert("Selecione um tema na lista de temas!")
-    return;
-  }
-  
     if(newWord.value === "" || newTiptoWord.value === ""){
       alert("Preencha os campos")
     return;
-      
     }
   
     addWordToTheme(selectedItemTheme, newWord.value, newTiptoWord.value)
@@ -298,16 +312,16 @@ const wordSelect = document.getElementById("wordSelect");
 const formNewTip = document.getElementById("formNewWord")
 const listTips = document.getElementById("listTips")
 
-function addTip(){
-  const wordId = selectedItemWord
+function addTip() {
+  const wordId = selectedItemWord;
   const newTip = newTipInput.value;
 
-  if(newTip === ""){
-    alert("Preencha corretamente!")
+  if (newTip === "") {
+    alert("Preencha corretamente!");
     return;
   }
 
-  if(wordId){
+  if (wordId) {
     themeRef.get().then((querySnapshot) => {
       querySnapshot.forEach((themeDoc) => {
         const themeId = themeDoc.id;
@@ -316,11 +330,22 @@ function addTip(){
           if (querySnapshot.size > 0) {
             const wordDoc = querySnapshot.docs[0];
             const tipsRef = wordsRef.doc(wordDoc.id).collection("tips");
-            tipsRef.add({ nameTips: newTip }).then(() => {
-              alert("Dica adicionada com sucesso!");
-              reloadPage();
+            tipsRef.where("nameTips", "==", newTip).get().then((querySnapshot) => {
+              if (!querySnapshot.empty) {
+                // A dica já existe
+                alert("A dica já foi cadastrada para essa palavra!");
+                return;
+              } else {
+                // A dica não existe, pode ser adicionada
+                tipsRef.add({ nameTips: newTip }).then(() => {
+                  alert("Dica adicionada com sucesso!");
+                  reloadPage();
+                }).catch((error) => {
+                  console.error("Erro ao adicionar a dica: ", error);
+                });
+              }
             }).catch((error) => {
-              console.error("Erro ao adicionada a dica: ", error);
+              console.error("Erro ao buscar as dicas da palavra: ", error);
             });
           } else {
             console.log("Palavra não encontrada");
@@ -330,8 +355,8 @@ function addTip(){
     }).catch((error) => {
       console.error("Erro ao buscar os temas: ", error);
     });
-  }else{
-    console.log("Selecione uma palavra")
+  } else {
+    console.log("Selecione uma palavra");
   }
 }
 
@@ -481,7 +506,6 @@ function deleteTheme() {
             .get()
             .then((querySnapshot) => {
               querySnapshot.forEach((doc) => {
-                console(1)
                 doc.ref.delete();
               });
             })
@@ -699,8 +723,15 @@ function showUpdatePopup(nameItem, updateFunction) {
 
   const confirmBtn = document.createElement("button");
   confirmBtn.textContent = "Salvar";
+
   confirmBtn.addEventListener("click", () => {
+    
+
     const newDescription = document.getElementById('newDescription').value
+    if(newDescription.trim() === ""){
+      alert("Digite algo!")
+      return
+    }
     alert(tipo + " alterado de: " + "'" + nameItem +"'"+ " , para: " + "'"+newDescription + "'" + " com sucesso!") 
     console.log(newDescription)
     updateFunction(newDescription)

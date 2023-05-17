@@ -1,3 +1,6 @@
+//const body = document.querySelector('body');
+
+
 function showLoading(){
     console.log("loading")
     const div = document.createElement("div")
@@ -7,15 +10,11 @@ function showLoading(){
     divAnimation.classList.add("loader")
 
     div.appendChild(divAnimation)
-
-    document.body.appendChild(div)
+    document.body.insertBefore(div, document.body.firstChild);
 }
 
 
-function hideLoading(){
-    const loading = document.getElementsByClassName("loading")
-    if(loading.length){
-        loading[0].remove()
-        console.log("fechando o loading")
-    }
-}
+function hideLoading() {
+    const loading = document.querySelector('.loading');
+    document.body.removeChild(loading);
+  }

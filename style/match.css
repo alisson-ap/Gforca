@@ -1,0 +1,103 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Comic Neue', cursive;
+    font-weight: normal;
+}
+
+body{
+    background: #d9d9d9;
+    
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 10px;
+    border: 20px #d9d9d9 solid;
+}
+
+.idSession{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+.idSession>h1{
+    margin-left: 50px;
+}
+
+.players{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.player1 , .player2{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+.player1 , .player2{
+    
+}
+
+.player1>button , .player2>button{
+    
+        background-color:#E3E0E0;
+        padding: 10px;
+        border:none;
+        font-size: 18px;
+        margin: 50px;
+        transition: 0.2s;
+        width: 150px;
+        cursor: pointer;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.player1>button:hover, .player2>button:hover{
+    background-color:#c9c9c9;
+    transform: scale(1.1);
+}
+
+.perfilCirculo1, .perfilCirculo2{
+    width: 400px;
+    height: 400px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.trigulo1, .trigulo2{
+    width: 0; 
+    height: 0; 
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-bottom: 200px solid #ffffff00;
+}
+.trigulo1{
+    border-bottom: 200px solid #e63d3d;
+}
+
+.trigulo2{
+    border-bottom: 200px solid #488532;
+
+}
+.check>input{
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #fff;
+    font-size: 20px;
+}
+
