@@ -1,4 +1,4 @@
-//const themeRef = firebase.firestore().collection("theme");
+const themeRef = firebase.firestore().collection("theme");
 
 const wordsWithTips = [];
 
@@ -62,13 +62,17 @@ themeRef.get().then((querySnapshot) => {
 });
 
 
-
+showLoading()
 function getRandomWordWithTips() {
-  const randomIndex = Math.floor(Math.random() * wordsWithTips.length);
-  return wordsWithTips[randomIndex];
+  setTimeout(()=>{
+    const randomWords = wordsWithTips[Math.floor(Math.random() * words.length)];
+    const dWord = randomWords.word
+    const dTheme = randomWords.theme;
+    const dHint =  randomWords.tips[0].nameTips;
+    console.log(dWord, dTheme, dHint)
+  hideLoading()
+}, 3000);
 }
 
 
-setTimeout(()=>{
-    console.log(wordsWithTips);
-}, 3000);
+

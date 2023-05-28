@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo da Forca</title>
+    <link rel="stylesheet" href="style/versus.css">
+</head>
+
+<body>
+
+    <div class="content">
+
+        
+            <div class="moedas">
+                <p>M</p>
+                <p>0</p>
+                <button>+</button>
+            </div>
+            <div class="timeAndTheme">
+                <h2 id="countdown" class="countdown">15</h2>
+                <h2>Tema</h2>
+            </div>
+
+        <div class="game">
+    
+            <div class="left-player">
+                <h2>Jogador 1</h2>
+                <div class="hangman">
+
+
+                </div>
+
+                <div class="word">
+                    <p> palavra teste </p>
+                </div>
+                <div class="letters">
+                    <button>A</button>
+                    <button>B</button>
+                    <button>C</button>
+                    <button>D</button>
+                    <button>E</button>
+                    <button>F</button>
+                    <button>G</button>
+                    <button>H</button>
+                    <button>I</button>
+                    <button>J</button>
+                    <button>K</button>
+                    <button>L</button>
+                    <button>M</button>
+                    <button>N</button>
+                    <button>O</button>
+                    <button>P</button>
+                    <button>Q</button>
+                    <button>R</button>
+                    <button>S</button>
+                    <button>T</button>
+                    <button>U</button>
+                    <button>V</button>
+                    <button>X</button>
+                    <button>Y</button>
+                    <button>W</button>
+                    <button>Z</button>
+                </div>
+                <div class="dica">
+                    <div class="buttonDica">
+                        <button>Dica</button>
+                    </div>
+                    
+                    <div class="textDica">
+                        <p> texto da dica x</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="right-player">
+                <h2>Jogador 2</h2>
+                <div class="hangman">
+
+                </div>
+
+                <div class="word">
+                    <p> palavra teste </p>
+                </div>
+
+                <div class="letters">
+                    <button>A</button>
+                    <button>B</button>
+                    <button>C</button>
+                    <button>D</button>
+                    <button>E</button>
+                    <button>F</button>
+                    <button>G</button>
+                    <button>H</button>
+                    <button>I</button>
+                    <button>J</button>
+                    <button>K</button>
+                    <button>L</button>
+                    <button>M</button>
+                    <button>N</button>
+                    <button>O</button>
+                    <button>P</button>
+                    <button>Q</button>
+                    <button>R</button>
+                    <button>S</button>
+                    <button>T</button>
+                    <button>U</button>
+                    <button>V</button>
+                    <button>X</button>
+                    <button>Y</button>
+                    <button>W</button>
+                    <button>Z</button>
+                </div>
+
+                <div class="dica">
+                    <div class="buttonDica">
+                        <button>Dica</button>
+                    </div>
+                    
+                    <div class="textDica">
+                        <p> texto da dica x </p>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footter">
+            <button>sair</button>
+        </div>
+
+        <div class="content">
+            <!-- Restante do seu código HTML -->
+    
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Você perdeu!</h3>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+
+
+    <script src="scripts/loading.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore-compat.js"></script>
+    
+    <script src="/scripts/firebase-init.js"></script>
+
+    <script src="scripts/versus.js"></script>
+    <script src="scripts/auth.js"></script>
+
+</body>
+
+</html>

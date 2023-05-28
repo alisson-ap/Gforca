@@ -48,11 +48,10 @@ function register() {
         usersRef.doc(userCredential.user.uid).set({
           name: nameUser.value,
           profile: "user",
-          linkPerfil: "",
+          linkPerfil: 0,
           email: email.value,
           partidas: 0,
           money: 0,
-          typeUser: "user",
           partidasPerdidas: 0,
           partidasGanhas: 0
         })

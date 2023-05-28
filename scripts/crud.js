@@ -9,13 +9,38 @@
 
 // separar funçoes do crud em arquivos separados 
 
+const usersRef = firebase.firestore().collection("users");
 
+showLoading()
+firebase.auth().onAuthStateChanged((user) => {
+    const uid = user.uid;
+    if(user){         
+        usersRef.doc(uid).get()
+        .then((doc) => {
+          if (doc.exists) {
+            // o documento do usuário existe, recupere as informações
+          
+            const data = doc.data();
+            const profile = data.profile;
+           
 
-firebase.auth().onAuthStateChanged(user => {
-    if(!user.email == "admin@gmail.com"){
-        window.location.href = "index.html";
+              if(profile != "admin"){
+                window.location.href = "index.html";
+              }
+
+            hideLoading()
+          } else {
+            // o documento do usuário não existe
+            console.log("Documento do usuário não encontrado.");
+            hideLoading()
+          }
+        })
+        .catch((error) => {
+          console.log("Erro ao recuperar informações do usuário: ", error);
+        });
     }
-})
+
+  });
 
 
 function reloadPage(){

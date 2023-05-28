@@ -14,52 +14,121 @@
 <body>
 
     <div class="main">
-            <div class="perfil">
-                
-                <div class="avatar">
-                    <img src="images/profile3.png" alt=""  height="42" width="42">
-                </div>
-                    
-                        
-                <p id="nomePerfil">-</p>
-                <p id="emailPerfil">-</p>
-                <button>Editar</button>
-                        
-                <div id="coins" class="hide">
-                    <div class="moedas" >
-                        <p>Moedas:</p>
-                        <p id="moedasPerfil">-</p>
-                    </div>
-               
-                    <button id="btnMoedas">Comprar Moedas</button>
-
-                </div>
-                   
-                <button onclick="logout()">Sair</button>
-            </div>
-    
-            <div class="content">
-                <div class="title">
-                    <p>jogo da</p>
-                    <h1>Forca</h1>
+             <div class="header">
+                <div class="moedas">
+                    <img src="images/icon_moedas1.png">
+                    <p id="moedasPerfil">-</p>
                 </div>
 
-                <div class="gif">
-                    <img src="images/img1.gif" alt="">
-                    <div class="tutorial">
-                        <p>Objetivo do jogo:</p>
-                        <p>O objetivo deste jogo é o de adivinhar qual a palavra que está oculta. A informação inicial que o jogador dispõe é a do número de letras que compõem a palavra, estando estas letras representadas por traços.</p>
-                    </div>
+                <div class="perfil">
+                    <img src="images/stickman.png" alt="">
+                    <p id="partidasGanhasPerfil">-</p>
                 </div>
+             </div>
+
+             <div class="title">
+                <h1>Jogo da Forca</h1>
+             </div>
+
+             <div class="imgForca">
+                <img src="images/modelo_forca.png" alt="">
+             </div>
 
                 <div class="btn">
-                    <button id="buttonGame" class="hide" >Jogar</button>
-                    <button id="crud" class="hide">Gerenciar dados</button>
-                </div>
-            </div>  
-    </div>
+                    <div id="btngame" class="hide">
+                        <div id="buttonsGame" class="hide2">
+                            <button id="buttonGame" >Jogar</button>
+                            <button id="buttonLoja" >Loja</button>
+                        </div>
 
-    <script src="scripts/loading.js"></script>
+                    </div>
+                    
+                    <div id="buttonCrud" class="hide">
+                        <button id="crud" >Gerenciar dados</button>
+                    </div>  
+
+                    <button onclick="logout()">Sair</button>
+
+                </div>
+
+        </div>  
+
+        
+        <div id="modal" class="modal hide">
+            <div class="modal-content">
+                
+                <div class="title">
+                    <h2>Loja</h2>
+                </div>
+                <div class="text">
+                    <p>Livre-se do nó de sua forca comprando as moedas
+                        abaixo. Mesmo os desafortunados podem ter 
+                        alguma chance.</p>
+                </div>
+                <div class="coins">
+                    <div class="opcao1">
+                        <img src="images/icon_moedas1.png" alt="">
+                        <p>100 - Moedas</p>
+                        <div class="buy">
+                            <p>R$5,00</p>
+                            <button class="comprar" id="opcao1"><img src="images/adicionar.png"></button>
+                        </div>
+                        
+                    </div>
+
+                    <div class="opcao2">
+                        <img src="images/icon_moedas2.png" alt="">
+                        <p>300 - Moedas</p>
+                        <div class="buy">
+                            <p>R$10,00</p>
+                            <button class="comprar" id="opcao2"><img src="images/adicionar.png"></button>
+                        </div>
+                        
+                    </div>
+
+                    <div class="opcao3">
+                        <img src="images/icon_moedas3.png" alt="">
+                        <p id="valorMoedas">1000 - Moedas</p>
+                        <div class="buy">
+                            <p id="valorReais">R$25,00</p>
+                            <button class="comprar" id="opcao3"><img src="images/adicionar.png"></button>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                    <div id="modalConfirmacao" class="modal hide"> 
+                        <div class="modal-content">
+                            
+                            <!-- Conteúdo do modal de confirmação -->
+                            <div class="coins">
+                                <div class="opcao">
+                                    <h2>Confirmação de Compra</h2>
+                                    <img id="imgConfirm" alt="">
+                                    <p id="msg">-</p>    
+                                    <p id="valor">-</p>
+                                    <div class="btnConfirmation">
+                                        <button class="confirmar">Confirmar</button>
+                                        <button class="cancelar">Cancelar</button>
+                                    </div>
+                                    
+                                </div>
+                               
+                                
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+
+
+                    <div class="btnclose">
+                        <button id="fecharModal">Fechar</button>
+                    </div>
+                    
+
+            </div>
+        </div>
 
     <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>

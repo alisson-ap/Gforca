@@ -5,7 +5,7 @@ function recuperarSenha(){
     showLoading()
     firebase.auth().sendPasswordResetEmail(recuperarEmail.value).then(()=>{
       hideLoading()
-      alert("Email enviado com sucesso")  
+      alert("Email enviado com sucesso")
     }).catch(error =>{
         hideLoading()
         alert("Email invalido!")

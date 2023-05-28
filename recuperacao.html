@@ -5,21 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
   <link rel="stylesheet" href="style/loading.css">
+  <link rel="stylesheet" href="style/recuperacao.css">
   <title>Recuperar senha</title>
 </head>
 <body>
   <div class="content">
-    <div>
-      <h1>RECUPERE SUA CONTA</h1>
-    </div>
 
-    
-      <input id="recuperarEmail" type="email" placeholder="digite seu e-mail">
-    
+    <div class="form">
+      <div class="title">
+        <h1>Recupere sua conta</h1>
+      </div>
 
-    <div class="botao">
-      <button onclick="recuperarSenha()" >ENVIAR</button>
-      <a href="login.html">voltar ao login</a>
+      <div class="email">
+        <label for="">e-mail</label>
+        <input id="recuperarEmail" type="email" placeholder="">
+      </div>
+     
+      <div class="botao">
+        <button onclick="recuperarSenha()" >enviar</button>
+        <a href="login.html">voltar ao login</a>
+      </div>
+
     </div>
   </div>
 </body>
