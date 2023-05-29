@@ -288,7 +288,19 @@ const formNewWor = document.getElementById("formNewWord")
 
 function addWordToTheme(themeId, newWord, newTip) {
   const wordsRef = themeRef.doc(themeId).collection("words");
-  
+  let nivel
+
+
+  if (newWord.length <= 4){
+    nivel = 1
+  } else if (newWord.length <= 7){
+    nivel = 2
+  }else{
+    nivel = 3
+  }
+
+
+
   // Verifica se a palavra já existe em minúsculas
   wordsRef.where("namewords", "==", newWord.toLowerCase()).get().then((querySnapshot) => {
     if (!querySnapshot.empty) {
@@ -298,6 +310,7 @@ function addWordToTheme(themeId, newWord, newTip) {
       // Se a consulta não retornar documentos, a palavra não existe, então você pode adicioná-la
       const newWordRef = wordsRef.doc(); // o Firestore gera automaticamente um ID para o novo documento
       newWordRef.set({
+        nivel : nivel,
         namewords: newWord.toLowerCase() // Salva em minúsculas
       }).then(() => {
         // adiciona a dica como subcoleção da nova palavra

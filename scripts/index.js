@@ -90,10 +90,7 @@ firebase.auth().onAuthStateChanged((user) => {
     }).catch(() =>{
         alert("Erro ao fazer logout")
     })
-}
-
-
-
+  }
 
 
 
@@ -189,7 +186,6 @@ function adicionarMoedasUsuario(valorMoedas) {
       // Atualiza o campo 'money' do usuário no Firestore
       console.log(valorMoedas)
       usersRef.doc(userId).update({
-          
           money: firebase.firestore.FieldValue.increment(valorMoedas)
       })
       .then(() => {

@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
   <link rel="stylesheet" href="/style/niveis.css">
+  <link rel="stylesheet" href="style/loading.css">
+  <script src="scripts/loading.js"></script>
   <title>Gforca - niveis</title>
 
   
@@ -14,27 +16,25 @@
 <body>
 
 <section class="tudo">
-  
-   <h1>Nível</h1> 
-    
-   <div class="buttonNivel">
+  <h1>Nível</h1> 
+  <div class="buttonNivel">
     <button id="btnFacil">fácil</button>
     <button id="btnMedio">médio</button>
     <button id="btnDificil">difícil</button>
-   </div>
-  
-   <button id="btnVoltar" onclick="voltar()">voltar</button>
-
+  </div>
+  <button id="btnVoltar" onclick="voltar()">voltar</button>
 </section>
 
 
 
 <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore-compat.js"></script>
 <script src="scripts/firebase-init.js"></script>
 <script src="scripts/auth.js"></script>
-<script src="scripts/loading.js"></script>
 
+
+<script src="scripts/wordsList.js"></script>
 <script src="scripts/niveis.js"></script>
 
 </body>

@@ -31,7 +31,7 @@
   <div class="forca">
 
     <div class="player1">
-      <h2 id="dPlayer1">Player 1 - nome1</h2>
+      <h2 id="dPlayer1">-</h2>
       <div class="forcaPlayer1">
           <img id="imgPlayer1" src="images/foca0.png" height="200px">
       </div>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="player2">
-      <h2 id="dPlayer2">Player 2 - nome2</h2>
+      <h2 id="dPlayer2">-</h2>
       <div class="forcaPlayer2">
           <img id="imgPlayer2" src="images/foca0.png"  style="transform: scaleX(-1);" height="200px">
       </div>
@@ -90,10 +90,37 @@
     
   <div class="Dica">
     <div class="btnDicas">
-      <button id="dica1"><img src="images/dica.png" height="50px"> <div class="moedas"> <img src="images/icon_moedas1.png" height="30px"> 100 </div></button>
-      <button id="dica2"><img src="images/dica.png" height="50px"> <div class="moedas"> <img src="images/icon_moedas1.png" height="30px"> 200 </div></button>
-      <button id="dica2"><img src="images/dica.png" height="50px"> <div class="moedas"> <img src="images/icon_moedas1.png" height="30px"> 300 </div></button>
-      <button id="dica2"><img src="images/dica.png" height="50px"> <div class="moedas"> <img src="images/icon_moedas1.png" height="30px"> 400 </div></button>
+
+      
+      <button id="dica1" class="tooltip-button" data-text="Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1">
+         <img src="images/dica.png" height="50px"> 
+          <div class="moedas"> 
+            <img src="images/icon_moedas1.png" height="30px"> 100 
+          </div>
+      </button>
+    
+      <button id="dica2" class="tooltip-button" data-text="Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1">
+        <img src="images/dica.png" height="50px">
+          <div class="moedas"> 
+            <img src="images/icon_moedas1.png" height="30px"> 200 
+          </div>
+      </button>
+      
+      <button id="dica3" class="tooltip-button" data-text="Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1">
+        <img src="images/dica.png" height="50px"> 
+          <div class="moedas"> 
+            <img src="images/icon_moedas1.png" height="30px"> 300 
+          </div>
+      </button>
+      
+      <button id="dica4" class="tooltip-button" data-text="Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1">
+        <img src="images/dica.png" height="50px">
+          <div class="moedas"> 
+            <img src="images/icon_moedas1.png" height="30px"> 400 
+          </div>
+      </button>
+   
+   
     </div>
       <div class="textDica  ">
         <h3>Dica:</h3>
@@ -101,11 +128,13 @@
       </div>
   </div>
 
-<div class="footer">
-  <button id="sair"> sair </button>
-  <button ir="tentarPalavra"> *Arriscar Tudo</button>
+  <div class="footer">
+    <button id="sair"> sair </button>
+    <button ir="tentarPalavra"> *Arriscar Tudo</button>
 
-</div>
+  </div>
+
+  <div id="words-container"></div>
 
 </div>
 
@@ -115,7 +144,8 @@
   <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore-compat.js"></script>
   
   <script src="/scripts/firebase-init.js"></script>
-  <!-- <script src="scripts/wordsList.js"></script> -->
+  <script src="scripts/wordsList.js"></script>
+  <!-- <script src="scripts/niveis.js"></script> -->
   <script src="scripts/versus.js"></script>
   
   <script src="scripts/auth.js"></script>
