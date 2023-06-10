@@ -63,6 +63,23 @@ body{
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
+button{
+    background-color:#E3E0E0;
+        padding: 10px;
+        border:none;
+        font-size: 18px;
+        margin: 50px;
+        transition: 0.2s;
+        width: 150px;
+        cursor: pointer;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
+}
+
+button:hover{
+    background-color:#c9c9c9;
+    transform: scale(1.1);
+}
+
 .player1>button:hover, .player2>button:hover{
     background-color:#c9c9c9;
     transform: scale(1.1);

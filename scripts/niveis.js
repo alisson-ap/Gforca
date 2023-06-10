@@ -1,3 +1,5 @@
+const url = 'http://localhost:3000/nivel'
+
 const btnFacil = document.getElementById('btnFacil')
 const btnMedio = document.getElementById('btnMedio')
 const btnDificil = document.getElementById('btnDificil')
@@ -10,30 +12,35 @@ let dicas
 const btnVoltar = document.getElementById('btnVoltar')
 
 
-function voltar(){
-    window.location.href = "index.html";
+function voltar() {
+  window.location.href = "index.html";
 }
 
-btnFacil.addEventListener('click' , ()=>{
+btnFacil.addEventListener('click', () => {
   getRandomWordWithTips()
-    palavra = dWord
-    tema = dTheme
-    dicas = dHint
+  palavra = dWord
+  tema = dTheme
+  dicas = dHint
 
-    console.log(palavra , tema , dicas)
+  console.log(palavra, tema, dicas);
 
-    window.location.href = "match.html";
-  })
+  const url = "match.html?nivel=" + 1;
 
-  btnMedio.addEventListener('click' , ()=>{
+  window.location.href = url;
 
+})
 
-    window.location.href = "versus.html";
-  })
+btnMedio.addEventListener('click', () => {
 
-  btnDificil.addEventListener('click' , ()=>{
+  const url = "versus.html?nivel=" + 2;
 
+  window.location.href = url;
+})
 
+btnDificil.addEventListener('click', () => {
 
-    window.location.href = "versus.html";
-  })
+  const url = "versus.html?nivel=" + 3;
+
+  window.location.href = url;
+
+})
