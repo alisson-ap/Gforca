@@ -1,9 +1,15 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400&display=swap');
+
 *{
     font-family: 'Comic Neue', cursive; 
     margin: 0;
     padding: 0;
+    font-weight: 400;
 }
   
+
+
 body {
     width: 100vw;
     height: 100vh;
@@ -34,10 +40,7 @@ body {
   
 .login-box h2 {
     margin-bottom: 60px;
-    font-weight: 1;
     font-size: 50px;
-    
-    
 }
   
 .user-box{
@@ -50,7 +53,16 @@ body {
 .user-box input{
   background: #d9d9d9;
   border: none;
-  padding: 5px;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 15px;
+  border: 1px solid rgb(191, 191, 191);
+  transition: 0.3s;
+}
+
+.user-box input:hover{
+  transform: scale(1.05);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
 .user-box label{
@@ -74,20 +86,21 @@ body {
 
 button{
   background-color:#E3E0E0;
-  border:none;
   font-size: 30px;
-  width: 60%;
+  width: 65%;
   padding-bottom: 5px;
   padding-top: 5px;
   margin-top: 30px;
   cursor: pointer;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   transition: 0.5s;
+  border-radius: 15px;
+  border: 1px solid rgb(191, 191, 191);
 }
 
 button:hover, button:focus{
   width: 70%;
   background-color:#d5d3d3fd;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
   
 a, p, label{

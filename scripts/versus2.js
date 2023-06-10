@@ -7,8 +7,7 @@ let players = [
   { name: 'Jogador 1', attempts: 0 }, // Jogador 1
   { name: 'Jogador 2', attempts: 0 }  // Jogador 2
 ];
-let countdown = 15; // Contagem regressiva de 15 segundos
-let countdownInterval; // Referência para o intervalo da contagem regressiva
+
 
 disableKeyboard(players[1].name); // Desativa o teclado do jogador 2 inicialmente
 
@@ -88,6 +87,9 @@ function switchPlayers() {
 
   startCountdown(); // Inicia a contagem regressiva
 }
+
+let countdown = 15; // Contagem regressiva de 15 segundos
+let countdownInterval; // Referência para o intervalo da contagem regressiva
 
 function startCountdown() {
   clearInterval(countdownInterval);

@@ -288,16 +288,16 @@ const formNewWor = document.getElementById("formNewWord")
 
 function addWordToTheme(themeId, newWord, newTip) {
   const wordsRef = themeRef.doc(themeId).collection("words");
-  let nivel
+  const nivel = 0
 
-
-  if (newWord.length <= 4){
-    nivel = 1
-  } else if (newWord.length <= 7){
-    nivel = 2
-  }else{
-    nivel = 3
-  }
+  //atribui um nivel para a palavra atraves do tamanho de caracter
+    if (newWord.length <= 4){
+      nivel = 1
+    } else if (newWord.length <= 7){
+      nivel = 2
+    }else{
+      nivel = 3
+    }
 
 
 

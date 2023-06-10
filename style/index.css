@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400&display=swap');
+
+
 *{
     margin: 0px;
     padding: 0px;
@@ -11,9 +14,10 @@
     background-size: cover;
 } */
 
-.hide{
-    display: none;
-}
+
+
+
+
 
 
 
@@ -59,10 +63,66 @@
     width: 80px;
 }
 
+
 .title>h1{
     font-size: 50px;
     margin-top: -50px;
 }
+
+
+
+.content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.btnBonus{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnBonus button, .btnLoja button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+    
+}
+
+.btnBonus img , .btnLoja img{
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+.btnBonus button:hover, .btnLoja button:hover{
+    transform: scale(1.1);
+
+}
+
+.game{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnLoja{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
 
 
 .imgForca>img{
@@ -83,13 +143,15 @@
 .btn>button,#buttonsGame>button ,#buttonCrud>button,.confirmar,.cancelar {
     background-color:#E3E0E0;
     padding: 10px;
-    border:none;
+    
     font-size: 24px;
     margin: 5px;
     transition: 0.2s;
-    width: 150px;
+    width: 170px;
     cursor: pointer;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 1px solid rgb(191, 191, 191);
+    
 }
 .btn>button:hover,#buttonsGame>button:hover ,#buttonCrud>button:hover, .confirmar:hover,.cancelar:hover{
     background-color:#c9c9c9;
@@ -98,7 +160,7 @@
 
 
 
-.modal {
+.modal, .modal-recompensa {
     position: fixed;
     top: 0;
     left: 0;
@@ -107,7 +169,7 @@
     background-color: rgba(0, 0, 0, 0.5);
   }
   
-  .modal-content {
+  .modal-content ,.modal-recompensa-content{
     background-color: white;
     padding: 20px;
     margin: 5% auto;
@@ -123,14 +185,14 @@
   }
 
 
-.title h2{
+  .modal-content .title h2{
     font-size: 40px;
 }
 
 
 
 
-.text{
+.modal-content .text{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,7 +203,7 @@
 
 
 
-.coins{
+.modal-content .coins{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -210,17 +272,26 @@
     justify-content: flex-end;
 }
 
-#fecharModal{
+#fecharModal, #coletarRecompensa{
     background-color:#E3E0E0;
     padding: 10px;
     border:none;
-    font-size: 15px;
+    font-size: 1.4rem;
     margin: 5px;
     transition: 0.2s;
     width: 150px;
     cursor: pointer;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 1px solid rgb(191, 191, 191);
+    transition: 0.5;
 }
+
+#fecharModal:hover, #coletarRecompensa:hover{
+    transform: scale(1.1);
+    background: #77777772;
+
+}
+
 
 #modalConfirmacao>.modal-content{
   margin-top: 200px;
@@ -256,4 +327,59 @@
 
 .btnConfirmation button{
     font-size: 20px;
+}
+
+
+.modal-recompensa-content {
+    row-gap: 20px;
+}
+
+.modal-recompensa-content h1{
+    font-weight: 400;
+}
+
+.modal-recompensa-content p {
+    font-size: 1.3rem;
+}
+
+.modal-recompensa-content img{
+    width: 200px;
+}
+.modal-recompensa-content .btnclose{
+    margin-top: 0px;
+    justify-content: center;
+    
+}
+
+
+.modal-recompensa-content .btnclose{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hide{
+    display: none;
 }

@@ -14,127 +14,220 @@
 </head>
 <body>
 
-<div class="conteudo">
+<div class="content">
 
   <div class="header">
     <div class="moedas">
-        <img src="images/icon_moedas1.png" alt="" height="50px">
+        <img src="images/icon_moedas1.png" >
         <h2 id="moedas">-</h2>
-       
     </div>
-    <div class="timeAndTheme">
-        <h2 id="time">15</h2>
-        <h2 id="theme">Tema: </h2>
+    <div class="timer">
+      <h1 id="time">20</h1>
+      <h1>s</h1>
     </div>
+    
+    
+    
+      <button id="sair">
+        sair
+        <img src="images/stickman.png" >
+      </button>
+    
   </div>
-
-  <div class="forca">
-
-    <div class="player1">
-      <h2 id="dPlayer1">-</h2>
-      <div class="forcaPlayer1">
-          <img id="imgPlayer1" src="images/foca0.png" height="200px">
-      </div>
-    </div>
-
-    <div class="conteudoAdicional">
-      <p>alguma coisa</p>
-    </div>
-
-    <div class="player2">
-      <h2 id="dPlayer2">-</h2>
-      <div class="forcaPlayer2">
-          <img id="imgPlayer2" src="images/foca0.png"  style="transform: scaleX(-1);" height="200px">
-      </div>
-    </div>
-
-  </div>
- <!-- <h1>Jogo da Forca</h1> -->
   
-  <div class="contentKeyborad">
-
-    <div id="hidden-word"></div>
-    
-    
-    <div id="keyboard">
-      <button class="key">Q</button>
-      <button class="key">W</button>
-      <button class="key">E</button>
-      <button class="key">R</button>
-      <button class="key">T</button>
-      <button class="key">Y</button>
-      <button class="key">U</button>
-      <button class="key">I</button>
-      <button class="key">O</button>
-      <button class="key">P</button>
-      <button class="key">A</button>
-      <button class="key">S</button>
-      <button class="key">D</button>
-      <button class="key">F</button>
-      <button class="key">G</button>
-      <button class="key">H</button>
-      <button class="key">J</button>
-      <button class="key">K</button>
-      <button class="key">L</button>
-      <button class="key">Ç</button>
-      <button class="key">Z</button>
-      <button class="key">X</button>
-      <button class="key">C</button>
-      <button class="key">V</button>
-      <button class="key">B</button>
-      <button class="key">N</button>
-      <button class="key">M</button>
-    </div>
-
+  <div class="theme">
+    <h1 id="theme">Tema:</h1>
   </div>
-    
-  <div class="Dica">
-    <div class="btnDicas">
 
-      
-      <button id="dica1" class="tooltip-button" data-text="Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1">
-         <img src="images/dica.png" height="50px"> 
-          <div class="moedas"> 
-            <img src="images/icon_moedas1.png" height="30px"> 100 
-          </div>
-      </button>
-    
-      <button id="dica2" class="tooltip-button" data-text="Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1">
-        <img src="images/dica.png" height="50px">
-          <div class="moedas"> 
-            <img src="images/icon_moedas1.png" height="30px"> 200 
-          </div>
-      </button>
-      
-      <button id="dica3" class="tooltip-button" data-text="Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1">
-        <img src="images/dica.png" height="50px"> 
-          <div class="moedas"> 
-            <img src="images/icon_moedas1.png" height="30px"> 300 
-          </div>
-      </button>
-      
-      <button id="dica4" class="tooltip-button" data-text="Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1Texto 1">
-        <img src="images/dica.png" height="50px">
-          <div class="moedas"> 
-            <img src="images/icon_moedas1.png" height="30px"> 400 
-          </div>
-      </button>
-   
-   
-    </div>
-      <div class="textDica  ">
-        <h3>Dica:</h3>
-        <h3 id="hint"></h3>
+
+  <div class="content-game">
+
+    <div class="facilitadores">
+      <div class="cura">
+        <img src="images/icon_moedas1.png">
+        <p>15</p>
+        <button id="facilitador1" class="tooltip-button" data-text="Cura">
+          <img  src="images/facilitador1.png"> 
+           Cura
+        </button>
       </div>
+
+      <div class="revelar">
+        <img src="images/icon_moedas1.png">
+        <p>30</p>
+        <button id="facilitador2" class="tooltip-button" data-text="Revelar">
+          <img   src="images/facilitador2.png"> 
+           Revelar
+        </button>
+      </div>
+
+      <div class="remover">
+        <img src="images/icon_moedas1.png">
+        <p>25</p>
+        <button id="facilitador3" class="tooltip-button" data-text="Remover">
+          <img  src="images/facilitador3.png"> 
+           Remover
+        </button>
+      </div>
+
+      <div class="Dica">
+        <div id="btnDica" class="btnDica ">
+          <img src="images/icon_moedas1.png">
+            <p>20</p>
+            <button id="facilitador4" class="tooltip-button" data-text="Dica">
+              <img  src="images/facilitador4.png"> 
+              Dica
+            </button>
+        </div>
+        <div id="textDica" class="textDica hide">
+          <h3>Dica:</h3>
+          <h3 id="hint"></h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-forca">
+      <div class="forca">
+
+          <div class="forcaPlayer1">
+            <h2 id="dPlayer1">-</h2>
+              <img id="imgPlayer1" src="images/robo0.png" style="transform: scaleX(-1);" >
+              <p id="attemptsPlayer1">-</p>
+            </div>
+      
+          <div class="forcaPlayer2">
+            <h2 id="dPlayer2">Player 2 - Roger</h2>
+              <img id="imgPlayer2" src="images/robo0.png">
+              <p id="attemptsPlayer2">-</p>
+          </div>
+        
+      </div>
+      
+
+      
+
+      <div class="contentKeyborad">
+        <div id="hidden-word">
+
+        </div>
+
+        <h2 id="roundPlayer">-</h2>
+
+        <div id="keyboard">
+          <button class="key">Q</button>
+          <button class="key">W</button>
+          <button class="key">E</button>
+          <button class="key">R</button>
+          <button class="key">T</button>
+          <button class="key">Y</button>
+          <button class="key">U</button>
+          <button class="key">I</button>
+          <button class="key">O</button>
+          <button class="key">P</button>
+          <button class="key">A</button>
+          <button class="key">S</button>
+          <button class="key">D</button>
+          <button class="key">F</button>
+          <button class="key">G</button>
+          <button class="key">H</button>
+          <button class="key">J</button>
+          <button class="key">K</button>
+          <button class="key">L</button>
+          <button class="key">Ç</button>
+          <button class="key">Z</button>
+          <button class="key">X</button>
+          <button class="key">C</button>
+          <button class="key">V</button>
+          <button class="key">B</button>
+          <button class="key">N</button>
+          <button class="key">M</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="arriscar">
+
+    
+
+
+      <button id="facilitador5" class="tooltip-button" data-text="Arriscar Tudo">
+        <img src="images/facilitador5.png" height="100px">
+        <p>Já sei a palavra!</p>
+      </button>
+    
+    </div>
   </div>
 
-  <div class="footer">
-    <button id="sair"> sair </button>
-    <button ir="tentarPalavra"> *Arriscar Tudo</button>
 
+
+<!-- modals -->
+
+<div id="modal-msg" class="modal-msg hide">
+  <div class="modal-msg-content">
+    <p id="msg">-</p>
+    <button id="btn-confirmar">Confirmar</button>
   </div>
+</div>
 
-  <div id="words-container"></div>
+
+
+
+
+<div id="modal-win" class="modal-win hide">
+  <div class="modal-win-content">
+      <h2>Você GANHOU!</h2>
+
+      <p id="msgWin">Parabéns! Você finalmente se livrou da sua força! Pegue seu prêmio e viva!</p>
+      <img src="images/robo-0.PNG">
+      
+      <div class="winner">
+        <h2 id="playerLoser">Player 1 Venceu!!!</h2>
+        <h2 id="coinsWin"> +250</h2>
+        <img src="images/icon_moedas1.png">
+      </div>
+
+      <button id="fecharModalWin">Jogar novamente</button>
+  </div>
+</div>
+
+
+<div id="modal-loser" class="modal-loser hide">
+  <div class="modal-loser-content">
+      <h2>Você PERDEU!</h2>
+      
+      <p id="msgLoser">Sentimos muito mas sua historia termina Aqui</p>
+
+      <img src="images/robo-6.PNG">
+      
+      <h2 id="playerLoser">Player 2 Perdeu!!!</h2>
+       
+      <button id="fecharModalLoser">Jogar novamente</button>
+  </div>
+</div>
+
+<div id="modal-arriscar" class="modal-arriscar hide">
+  <div class="modal-arriscar-content">
+      
+
+      <h2>Tem certeza que sabe a palavra?</h2>
+
+      <p>Lembre-se: Você sera enforcado caso erre, Digite a palavra
+         abaixo caso queria continuar e depois clique em enviar ou
+          então "voltar" para continnuar tentando se livrar da corda 
+          em seu pescoço.</p>
+
+      <input id="tentativa" type="text" placeholder="Digite a palavra aqui.">
+
+      <button id="enviarArricar">Enviar</button>
+      <button id="closeModal">Voltar</button>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 </div>
 
@@ -149,8 +242,6 @@
   <script src="scripts/versus.js"></script>
   
   <script src="scripts/auth.js"></script>
-  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-  <script src="socket/versus.js"></script>
 </body>
 
 

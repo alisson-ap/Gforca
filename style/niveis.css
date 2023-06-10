@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
@@ -15,13 +17,12 @@ body{
 }
 
 .tudo{
-    
-    padding: 50px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 30%;
+    width: 500px;
     height: 70%;
     background: white;
 }
@@ -34,32 +35,54 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 50px;
+    width: 100%;
 }
+
 
 button{
     background-color:#E3E0E0;
     font-size: 25px;
     transition: 0.2s;
-    width: 180px;
-    height: 40px;
+    width: 70%;
+
     cursor: pointer;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    
+    padding: 5px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 15px;
+    border: 1px solid rgb(191, 191, 191);
+    column-gap: 10px;
+
 }
 button:hover{
     background-color:#c9c9c9;
     transform: scale(1.1);
 }
 
-.buttonNivel > button{
-    border: 1px grey solid;
-    font-weight: 600;
-}
 
 #btnVoltar{
-    border: none;
     margin-top: 50px;
+    width: 40%;
+}
+
+.buttonNivel p{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 
 
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 20px;
+    column-gap: 5px;
+}

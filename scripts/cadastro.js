@@ -53,7 +53,9 @@ function register() {
           partidas: 0,
           money: 0,
           partidasPerdidas: 0,
-          partidasGanhas: 0
+          partidasGanhas: 0,
+          lastAccess: null,
+          lastBonusDate: null
         })
         .then(() => {
             //hideLoading();

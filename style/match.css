@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
@@ -6,115 +8,135 @@
 }
 
 body{
-    background: #d9d9d9;
+    background: white;
     
 }
 
-.container{
+.content{
     display: flex;
     flex-direction: column;
-    background: white;
-    padding: 10px;
-    border: 20px #d9d9d9 solid;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px 20px 20px;
 }
 
-.idSession{
+.header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.moedas{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 5px;
+    font-size: 2.5rem;
+}
+
+.moedas img{
+    width: 50px;
+}
+
+.difficult{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.btnSair button{
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 2.2rem;
+    transition: 0.4s;
+    padding: 5px;
+}
+
+.btnSair button img{
+    width:80px;
+}
+
+
+.btnSair button:hover{ 
+    transform: scale(1.04);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.238);
+    outline: 1px solid rgba(0, 0, 0, 0.238);
     
 }
-.idSession>h1{
-    margin-left: 50px;
-}
+
 
 .players{
     display: flex;
-    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;    
+
     width: 100%;
-    justify-content: space-around;
 }
 
-.player1 , .player2{
-    margin-top: 40px;
-    margin-bottom: 40px;
+
+.player1, .player2{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    
-}
-
-
-.player1 , .player2{
-    
-}
-
-.player1>button , .player2>button{
-    
-        background-color:#E3E0E0;
-        padding: 10px;
-        border:none;
-        font-size: 18px;
-        margin: 50px;
-        transition: 0.2s;
-        width: 150px;
-        cursor: pointer;
-        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-button{
-    background-color:#E3E0E0;
-        padding: 10px;
-        border:none;
-        font-size: 18px;
-        margin: 50px;
-        transition: 0.2s;
-        width: 150px;
-        cursor: pointer;
-        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
-}
-
-button:hover{
-    background-color:#c9c9c9;
-    transform: scale(1.1);
-}
-
-.player1>button:hover, .player2>button:hover{
-    background-color:#c9c9c9;
-    transform: scale(1.1);
-}
-
-.perfilCirculo1, .perfilCirculo2{
-    width: 400px;
-    height: 400px;
-    background: #d9d9d9;
-    border-radius: 50%;
-    display: flex;
     justify-content: center;
-    align-items: center;
-
+    align-items: center;  
+    row-gap: 10px;
+    font-size: 1.5em;
+    width: 30%;
 }
 
-.trigulo1, .trigulo2{
-    width: 0; 
-    height: 0; 
-    border-left: 120px solid transparent;
-    border-right: 120px solid transparent;
-    border-bottom: 200px solid #ffffff00;
-}
-.trigulo1{
-    border-bottom: 200px solid #e63d3d;
+.player1 img , .player2 img{
+    margin-top: 40px;
+    margin-bottom: 50px;
+    width: 300px;
 }
 
-.trigulo2{
-    border-bottom: 200px solid #488532;
+.player1 input , .player2 input{
+    width: 30px;
+    height: 30px;
+}
 
+
+
+
+.premio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    width: 30%;
 }
-.check>input{
-    height: 1.3em;
-    width: 1.3em;
-    background-color: #fff;
-    font-size: 20px;
+
+
+.premio #vs{
+    font-size: 4.5rem;
+    color: #11d100;
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: #000;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    
 }
+
+.premio h1, #valorPartida{
+    font-size: 3rem;
+}
+
+.premio img{
+    width: 70px;
+}
+
+
+
+
+
+
 

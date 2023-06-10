@@ -6,46 +6,72 @@
 	<script src="scripts/loading.js"></script>
 	<title>Match</title>
 </head>
+
 <body>
-	<div class="container">
-		<div class="idSession">
-			<h1>ID:#####</h1>
+	<div class="content">
+
+		<div class="header">
+			<div class="moedas">
+				<img src="images/icon_moedas1.png">
+				<p id="perfilMoedas">550</p>
+			</div>
+
+			<div class="difficult">
+				<h1>Difilcudade</h1>
+				<h2 id="difilcudade">Médio</h2>
+			</div>
+
+			<div class="btnSair">
+				<button id="btnSair" onclick="sair()">
+					sair
+					<img src="images/stickman.png">
+				</button>
+			</div>
 		</div>
+
+
 		<div class="players">
-			<div id= "player1" class="player1">
-				<div class="perfilCirculo1">
-					<div class="trigulo1"></div>
-				</div>
 
-				<div id="button1"></div>
-
-				<div class="check">
-					<input id="checkbox1" type="checkbox" disabled>
+			<div class="player1">
+				<h1 id="perfilNome"> p1 -</h1>
+				<img src="images/perfilPlayer1.png">
+				<div id="check1">
 				</div>
+				<h1 id="readyP1"> Aguardando... </h1>
 			</div>
 
-			<div id= "player2" class="player2">
-				<div class="perfilCirculo2">
-					<div class="trigulo2"></div>
-				</div>
-
-				<div id="button2"></div>
-
-				<div class="check">
-					<input id="checkbox2" type="checkbox" disabled>
-				</div>
+			<div class="premio">
+				<p id="vs">VS</p>
+				<h1>Prêmio</h1>
+				<p id="valorPartida">500</p>
+				<img src="images/icon_moedas1.png">
 			</div>
+
+			<div class="player2">
+				<h1 id="perfilNome"> p2 -</h1>
+				<img src="images/perfilPlayer2.png">
+				<div id="check2">
+				</div>
+				<h1 id="readyP2"> Aguardando... </h1>
+			</div>
+
 		</div>
+
+
+
 	</div>
 
 
-		<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>
-		<script src="scripts/firebase-init.js"></script>
-		<script src="scripts/auth.js"></script>
-		<script src="scripts/match.js"></script>
-		<script src="http://localhost:3000/socket.io/socket.io.js"></script>
-		<script src="socket/match.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>
+	<script src="scripts/firebase-init.js"></script>
+	<script src="scripts/auth.js"></script>
 
+
+	<script src="scripts/match.js"></script>
+
+	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script src="socket/match.js"></script>
 </body>
+
 </html>

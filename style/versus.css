@@ -1,58 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
     font-family: 'Comic Neue', cursive;
-    font-weight: normal;
-}
-
-
-.conteudo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 15px;
-    border: 10px solid #d9d9d9;
     
 }
 
-.header{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    margin-bottom: 10px;
+
+
+
+
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 15px 0px 15px;
+  /* width: 100%; */
+  
 }
+
+
+.header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
 
 .moedas{
-    display: flex;
-    column-gap: 10px;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 5px;
+  font-size: 1.5rem;
 }
 
-.timeAndTheme{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -30px;
+.timer{
+  display: flex;
+  flex-direction: row;
+}
+.moedas img{
+  width: 50px;
 }
 
+.timer h1{
+  font-size: 3rem;
+}
+
+.header button{
+  border: none;
+  cursor: pointer;
+  background: none;
+  font-size: 2rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.header button>img{
+  width: 80px;
+}
+
+.theme{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.namePlayers{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  color: #777777;
+  font-size: 1.5rem;
+  margin-top: -10px;
+}
+
+.content-game{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.facilitadores{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+
+  width: 25%;
+  height: 100%;
+}
+
+.cura, .revelar, .remover, .btnDica{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5px;
+  font-size: 1.5rem;
+}
+
+.cura>img, .revelar>img, .remover>img, .btnDica>img{
+  height: 40px;
+}
+
+.facilitadores button, .arriscar button{
+  display: flex;
+  flex-direction: column;
+  border: none;
+  cursor: pointer;
+  background: none;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  transition: 0.5s;
+}
+
+.facilitadores button:hover, .arriscar button:hover{
+  transform: scale(1.1) ;
+
+}
+
+.facilitadores button>img{
+  height: 70px;
+}
+
+
+.Dica{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 100%;
+}
+
+
+.textDica{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 20px 40px 20px 40px;
+  background: #d9d9d970;
+  border-radius: 50px;
+} 
+
+
+.content-forca{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+}
 
 .forca{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
-    width: 100%;
-    margin-top: -50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+
 }
 
-.player1, .player2{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 25px;
+.forca img{
+  height: 300px;
+  z-index: -1;
+  /* outline: 1px solid rgba(0, 0, 0, 0.124); */
+}
 
+.forcaPlayer1, .forcaPlayer2{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: center;
+  font-size: 1.3rem;
+  color: #777777;
+  margin-top: -20px;
 }
 
 
@@ -61,19 +197,18 @@
     flex-direction: column;
     row-gap: 10px;
     align-items: center;
-    width: 80%;
-    margin-top: -10px;   
+    width: 100%;
 }
 
 
 #keyboard{
     display: flex;
-    width: 55%;
+    width: 70%;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
+    
 }
-
 
 .key {
     display: inline-block;
@@ -82,7 +217,7 @@
     background-color: #d9d9d9;
     margin: 3px;
     padding: 5px;
-    font-size: 30px;
+    font-size: 2.5rem;
     cursor: pointer;
     border: none;
     transition: 0.5s;
@@ -122,68 +257,20 @@
   }
 
 
-  .Dica{
+
+  .arriscar{
     display: flex;
-    margin-top: 50px;
-    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    padding-top: 390px;
+    
+    width: 20%;
   }
 
-
-  .btnDicas{
-    display: flex;
-    flex-direction: row;
-    column-gap: 10px;
+  .arriscar button{
+    margin-left: -30px;
   }
-
-  .btnDicas button{
-    background: none;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #d9d9d9;
-    align-items: center;
-    row-gap: 10px;
-    cursor: pointer;
-    transition: 0.5s;
-  }
-
-  .btnDicas button:hover{
-    background: #d9d9d9;
-    transform: scale(1.1);
-  }
-
-  .textDica{
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    padding: 20px;
-    background: #d9d9d970;
-  }
-
-  .footer{
-    margin-top: 30px;
-    display: flex;
-    flex-direction: row;
-    column-gap: 10px;
-    width: 100%;
-    justify-content: space-around;
-  }
-
-  .footer button{
-    background-color:#E3E0E0;
-    padding: 10px;
-    border:none;
-    font-size: 24px;
-    margin: 5px;
-    transition: 0.2s;
-    cursor: pointer;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  }
- 
-
 
 .tooltip {
   position: absolute;
@@ -192,11 +279,174 @@
   padding: 8px;
   border-radius: 4px;
   font-size: 14px;
-  top: -50px;
-  left: 60%;
+  top: -30px;
+  left: 180px;
   transform: translateX(-90%);
-  width: 150px;
+  width: 120px;
+  
 }
 
 
 
+
+
+
+/* modals */
+
+
+
+
+
+
+
+.modal-win, .modal-loser ,.modal-arriscar, .modal-msg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+}
+
+
+.modal-win, .modal-loser{
+  backdrop-filter: blur(5px);
+}
+
+/* .modal-confirmacao-content {
+  background-color: white;
+  padding: 20px;
+  margin: 200px auto;
+  width: 300px;
+  text-align: center;
+} */
+
+
+.modal-win-content, .modal-loser-content, .modal-arriscar-content, .modal-msg-content {
+  background-color: white;
+  padding: 20px;
+  margin: 5% auto;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 15px;
+}
+
+.modal-win-content h2{
+  font-size: 2rem;
+  color: #82c762;
+  font-weight: 400;
+}
+
+.modal-win-content p, .modal-loser-content p{
+  font-size: 1.2rem;
+}
+
+.modal-win-content >img {
+  height: 400px ;
+}
+.modal-loser-content>img{
+  height: 400px;
+}
+.winner{
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.winner h2, .modal-arriscar-content h2 {
+  color: black;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.winner img{
+  width: 40px;
+}
+
+.modal-win-content button, .modal-loser-content button, .modal-arriscar-content button, .modal-msg-content button {
+  border: 1px solid #77777712;
+  padding: 5px 10px 5px 10px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  background: #d9d9d9;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.modal-arriscar-content button{
+  width: 150px;
+}
+
+.modal-win-content button:hover , .modal-loser-content button:hover, .modal-arriscar-content button:hover{
+  transform: scale(1.1);
+  background: #a1a1a1;
+}
+
+
+.modal-loser-content >h2{
+  color: red;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.modal-arriscar-content input{
+  border: 1px solid #77777712;
+  padding: 5px 10px 5px 10px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  background: #d9d9d9;
+  width: 300px;
+  font-size: 1.4rem;
+  margin: 10px 0px 20px 0px;
+}
+
+.modal-arriscar-content p{
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 5px 40px 5px 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* #facilitador1 img{
+  filter: opacity(0.4) drop-shadow(0 0 0 #82c762);
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hide{
+  display: none;
+}

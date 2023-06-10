@@ -30,28 +30,71 @@
                 <h1>Jogo da Forca</h1>
              </div>
 
-             <div class="imgForca">
-                <img src="images/modelo_forca.png" alt="">
-             </div>
+             <div class="content">
+                
 
-                <div class="btn">
-                    <div id="btngame" class="hide">
-                        <div id="buttonsGame" class="hide2">
-                            <button id="buttonGame" >Jogar</button>
-                            <button id="buttonLoja" >Loja</button>
-                        </div>
+                <div class="btnBonus">
 
-                    </div>
+                    <button id="btnBonus">
+                        <img src="images/bntBonus.png" width="150px" alt="">
+                    </button>
                     
-                    <div id="buttonCrud" class="hide">
-                        <button id="crud" >Gerenciar dados</button>
-                    </div>  
+                   
+                   
+                    <h2>Recompensa diário</h2>
+                    <p id="lastLogin"></p>
+                </div>
+                
+                
+                
+                
+                <div class="game">
+                    <div class="imgForca">
+                        <img src="images/modelo_forca.png" alt="">
+                     </div>
+                     <div class="btn">
+                        <div id="btngame" class="hide">
+                            <div id="buttonsGame">
+                                <button id="buttonGame" >Jogar</button>
+                            </div>
+        
+                        </div>
+                            
+                        <div id="buttonCrud" class="hide">
+                            <button id="crud" >Gerenciar dados</button>
+                        </div>  
+                        <button onclick="logout()">Sair</button>
+                    </div>
+                </div>
+               
 
-                    <button onclick="logout()">Sair</button>
-
+                <div class="btnLoja">
+                    <button id="buttonLoja">
+                        <img src="images/btnLoja.png" width="150px" alt="">
+                    </button>
+                                        
+                    <h2>Loja</h2>
                 </div>
 
+             </div>
+
         </div>  
+
+        <div id="modal-recompensa" class="modal-recompensa hide">
+            <div class="modal-recompensa-content">
+                
+                    <h1>Prêmio de login diário</h1>
+                
+                    <p>Parabéns! clique em "Coletar" Você ganhou 100 moedas! no bonus diario, continue assim!.</p>
+                
+                    <img src="images/icon_moedas1.png" alt="">
+                    
+                    <h1>+100 moedas</h1>
+                    <div class="btnclose">
+                        <button id="coletarRecompensa">Coletar</button>
+                    </div>
+            </div>
+        </div>
 
         
         <div id="modal" class="modal hide">

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
@@ -53,12 +55,21 @@ label{
 	width: 250px;
 }
 
+
 .input>input{
-	border: none;
 	background-color: #d9d9d9;
 	padding: 10px;
-
+    border-radius: 15px;
+    border: 1px solid rgb(191, 191, 191);
+    transition: 0.3s;
 }
+
+.input input:hover{
+    transform: scale(1.03);
+}
+
+
+
 
 .input>p{
 	text-align: center;
@@ -69,34 +80,12 @@ label{
 .btn{
 	margin-top: 70px;
 	display: flex;
-	flex-direction: column;
-	row-gap: 10px;
+	flex-direction: row;
+	column-gap: 20px;
 	width: 100%;
 	align-items: center;
+    justify-content: center;
 }
-
-/* a{
-    color: black;
-    text-decoration: none;
-}
-
-button,a{
-    background-color:#E3E0E0;
-    padding: 10px;
-    border:none;
-    font-size: 18px;
-    margin: 5px;
-    transition: 0.2s;
-    width: 150px;
-    cursor: pointer;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-button:hover, a:hover{
-    background-color:#c9c9c9;
-    transform: scale(1.1);
-} */
-
 
 button,a{
     background-color:#E3E0E0;
@@ -105,12 +94,16 @@ button,a{
     width: 30%;
     text-align: center;
     cursor: pointer;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     transition: 0.5s;
     padding-top: 5px;
     padding-bottom: 5px;
+    border-radius: 15px;
+    border: 1px solid rgb(191, 191, 191);
+
   }
   
+
+
   button:hover, button:focus, a:hover{
     transform: scale(1.1);
     background-color:#d5d3d3fd;
@@ -118,8 +111,6 @@ button,a{
 
 
   a{
-    background: white;
     color: black;
-    border: 1px solid black;
     text-decoration: none;
   }
