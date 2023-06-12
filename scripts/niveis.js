@@ -55,9 +55,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
 
 
-function voltar(){
-    window.location.href = "index.html";
-}
+
 
 btnFacil.addEventListener('click' , ()=>{
   // getRandomWordWithTips()
