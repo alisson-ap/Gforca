@@ -23,11 +23,11 @@ socket.on('player2', (playerUser) => {
     createCheckbox(false);
 });
 
-socket.on('redirect', (mensagem)=>{
-    console.log(mensagem);
-    showLoading()
+socket.on('redirect', (room) => {
+    words(room);
+    showLoading();
     setTimeout(() => {
-        window.location.href = "versus.html";
+        window.location.href = "versus.html?room=" + room;
     }, 3000);
 })
 
@@ -39,10 +39,10 @@ socket.on('checkReady', (player) => {
         checkBox1P.removeAttribute('disabled');
         checkBox1P.setAttribute('disabled', 'disabled');
 
-        if(checkBox1P.checked){
+        if (checkBox1P.checked) {
             checkBox1P.checked = false;
             readyP1.innerHTML = "Aguardando";
-        }else{
+        } else {
             checkBox1P.checked = true;
             readyP1.innerHTML = "Pronto";
         }
@@ -51,10 +51,10 @@ socket.on('checkReady', (player) => {
         checkBox2P.removeAttribute('disabled');
         checkBox2P.setAttribute('disabled', 'disabled');
 
-        if(checkBox2P.checked){
+        if (checkBox2P.checked) {
             checkBox2P.checked = false;
             readyP2.innerHTML = "Aguardando";
-        }else{
+        } else {
             checkBox2P.checked = true;
             readyP2.innerHTML = "Pronto";
         }
@@ -66,7 +66,7 @@ const readyP1 = document.getElementById("readyP1")
 const readyP2 = document.getElementById("readyP2")
 
 
-function createCheckbox(player){
+function createCheckbox(player) {
     const check1 = document.getElementById('check1');
     const check2 = document.getElementById('check2');
 
@@ -74,7 +74,7 @@ function createCheckbox(player){
     checkBox1.setAttribute("id", "checkboxPlayer1");
     checkBox1.setAttribute("type", "checkbox");
     checkBox1.setAttribute("onClick", "checkBoxPlayer1F()");
-    
+
     const checkBox2 = document.createElement("input");
     checkBox2.setAttribute("id", "checkboxPlayer2");
     checkBox2.setAttribute("type", "checkbox");
@@ -96,7 +96,7 @@ function createCheckbox(player){
 
 }
 
-function checkBoxPlayer1F(){
+function checkBoxPlayer1F() {
     const data = {
         socketId: socket.id,
         player: true,
@@ -105,24 +105,53 @@ function checkBoxPlayer1F(){
     console.log("Aqui");
     socket.emit('ready', (data));
     const checkBox1 = document.getElementById("checkboxPlayer1");
-    if (checkBox1.checked){
+    if (checkBox1.checked) {
         readyP1.innerHTML = "Pronto"
-    }else{
+    } else {
         readyP1.innerHTML = "Aguardando"
 
     }
 }
 
-function checkBoxPlayer2F(){
+function checkBoxPlayer2F() {
     const data = {
         socketId: socket.id,
         player: false,
     }
     socket.emit('ready', (data));
     const checkBox2 = document.getElementById("checkboxPlayer2");
-    if (checkBox2.checked){
+    if (checkBox2.checked) {
         readyP2.innerHTML = "Pronto"
-    }else{
+    } else {
         readyP2.innerHTML = "Aguardando..."
     }
+}
+
+function words(roomId) {
+    fetchWordsWithTips()
+        .then(() => {
+
+            const nivelDesejado = parseInt(nivel);
+
+            const palavrasNivelDesejado = wordsWithTips.filter(word => word.nivel === nivelDesejado);
+            // console.log(palavrasNivelDesejado)
+
+            const randomWord = palavrasNivelDesejado[Math.floor(Math.random() * palavrasNivelDesejado.length)];
+
+            const dWord = randomWord.word.toUpperCase().replace(/\s/g, '').normalize('NFD').replace(/[\u0300-\u0366\u0368-\u036F]/g, '');
+
+            const dTheme = randomWord.theme.toUpperCase();
+            const dTips = randomWord.tips[0].nameTips;
+
+            const data ={randomWord: randomWord, 
+                         roomId: roomId}
+
+            socket.emit("words", (data));
+
+        });
+
+}
+
+function sair(){
+    window.location.href = "index.html";
 }

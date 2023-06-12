@@ -13,12 +13,12 @@
 		<div class="header">
 			<div class="moedas">
 				<img src="images/icon_moedas1.png">
-				<p id="perfilMoedas">550</p>
+				<p id="perfilMoedas">-</p>
 			</div>
 
 			<div class="difficult">
 				<h1>Difilcudade</h1>
-				<h2 id="difilcudade">Médio</h2>
+				<h2 id="difilcudade"></h2>
 			</div>
 
 			<div class="btnSair">
@@ -33,7 +33,7 @@
 		<div class="players">
 
 			<div class="player1">
-				<h1 id="perfilNome"> p1 -</h1>
+				<h1 id="perfilNome"> -</h1>
 				<img src="images/perfilPlayer1.png">
 				<div id="check1">
 				</div>
@@ -64,11 +64,12 @@
 
 	<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore-compat.js"></script>
 	<script src="scripts/firebase-init.js"></script>
 	<script src="scripts/auth.js"></script>
 
-
-	<script src="scripts/match.js"></script>
+	<script src="scripts/wordsList.js"></script>
+	<script src="scripts/match.js" type="module"></script>
 
 	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
 	<script src="socket/match.js"></script>

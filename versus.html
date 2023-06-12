@@ -22,8 +22,6 @@
         <h2 id="moedas">-</h2>
     </div>
     <div class="timer">
-      <h1 id="time">20</h1>
-      <h1>s</h1>
     </div>
     
     
@@ -111,7 +109,8 @@
 
         </div>
 
-        <h2 id="roundPlayer">-</h2>
+</h2>
+        <h2 id="roundPlayer">Player 1 jogando... </h2>
 
         <div id="keyboard">
           <button class="key">Q</button>
@@ -182,7 +181,6 @@
       <img src="images/robo-0.PNG">
       
       <div class="winner">
-        <h2 id="playerLoser">Player 1 Venceu!!!</h2>
         <h2 id="coinsWin"> +250</h2>
         <img src="images/icon_moedas1.png">
       </div>
@@ -200,7 +198,6 @@
 
       <img src="images/robo-6.PNG">
       
-      <h2 id="playerLoser">Player 2 Perdeu!!!</h2>
        
       <button id="fecharModalLoser">Jogar novamente</button>
   </div>
@@ -242,6 +239,9 @@
   <script src="scripts/versus.js"></script>
   
   <script src="scripts/auth.js"></script>
+
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script src="socket/versus.js"></script>
 </body>
 
 

@@ -1,5 +1,3 @@
-
-
 const themeRef = firebase.firestore().collection("theme");
 const wordsWithTips = [];
 
@@ -18,6 +16,7 @@ function fetchWordsWithTips() {
         querySnapshot.forEach((wordDoc) => {
           const wordId = wordDoc.id;
           const wordName = wordDoc.data().namewords;
+          const wordNivel = wordDoc.data().nivel;
           const wordTips = [];
 
           const tipsRef = wordsRef.doc(wordId).collection("tips");
@@ -36,6 +35,7 @@ function fetchWordsWithTips() {
           wordPromises.push(wordPromise);
           
           wordsWithTips.push({
+            nivel: wordNivel,
             theme: themeName,
             word: wordName,
             tips: wordTips,
@@ -51,41 +51,3 @@ function fetchWordsWithTips() {
     return Promise.all(promises);
   });
 }
-
-
-
-let dWord
-let dTheme
-let dHint
-
-
-
-function getRandomWordWithTips() {
-  showLoading();
-  fetchWordsWithTips()
-    .then(() => {
-      
-      const randomWords = wordsWithTips[Math.floor(Math.random() * wordsWithTips.length)];
-      console.log(wordsWithTips) 
-      dWord = randomWords.word;
-      dTheme = randomWords.theme;
-      dHint = randomWords.tips[0].nameTips;
-      
-      hideLoading();
-    })
-    .catch((error) => {
-      console.error("Erro ao buscar as palavras com dicas: ", error);
-      hideLoading();
-    });
-}
-
-getRandomWordWithTips()
-
-
-// setTimeout(() => {
-  
-
-//   console.log(dWord,dTheme,dHint)
-
-
-// }, 2000);

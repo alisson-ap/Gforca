@@ -252,6 +252,16 @@ function addTheme() {
     alert("Por favor, preencha os campos!");
     console.log(nameTheme,newWordtoTheme,newTiptoWordtoTheme)
     return;
+  }else if(nameTheme.length <= 3){
+    alert("O tema deve ter mais de 4 letras")
+    return;
+  }else if(newWordtoTheme.length <= 3){
+    console.log("aqui 2", newWordtoTheme.length, newWordtoTheme)
+    alert("A palavra deve ter mais de 4 letras")
+    return;
+  }else if(newTiptoWordtoTheme.length <= 3){
+    alert("A dica deve ter mais de 4 letras")
+    return
   }
 
   // verifica se a palavra já existe no banco
@@ -288,10 +298,10 @@ const formNewWor = document.getElementById("formNewWord")
 
 function addWordToTheme(themeId, newWord, newTip) {
   const wordsRef = themeRef.doc(themeId).collection("words");
-  const nivel = 0
+  let nivel = 0
 
-  //atribui um nivel para a palavra atraves do tamanho de caracter
-    if (newWord.length <= 4){
+  //atribui um nivel para a palavra atraves do tamanho da string
+    if (newWord.length === 4){
       nivel = 1
     } else if (newWord.length <= 7){
       nivel = 2
@@ -315,7 +325,7 @@ function addWordToTheme(themeId, newWord, newTip) {
       }).then(() => {
         // adiciona a dica como subcoleção da nova palavra
         newWordRef.collection("tips").add({
-          nameTips: newTip
+          nameTips: newTip.toLowerCase()
         }).then(() => {
           formNewWor.reset();
           CloseModal()
@@ -338,6 +348,14 @@ function addWord(){
     if(newWord.value === "" || newTiptoWord.value === ""){
       alert("Preencha os campos")
     return;
+    }else if(newWord.length <= 3){
+
+      alert("A palavra deve ter mais de 4 letras")
+      console.log("aqui")
+      return;
+    }else if(newTiptoWord.length <= 3){
+      alert("A dica deve ter mais de 4 caracter")
+      return;
     }
   
     addWordToTheme(selectedItemTheme, newWord.value, newTiptoWord.value)
@@ -357,6 +375,9 @@ function addTip() {
   if (newTip === "") {
     alert("Preencha corretamente!");
     return;
+  }else if(newTip.length <= 3){
+    alert("A dica deve ter mais de 4 caracter")
+    return
   }
 
   if (wordId) {
@@ -375,7 +396,7 @@ function addTip() {
                 return;
               } else {
                 // A dica não existe, pode ser adicionada
-                tipsRef.add({ nameTips: newTip }).then(() => {
+                tipsRef.add({ nameTips: newTip.toLowerCase() }).then(() => {
                   alert("Dica adicionada com sucesso!");
                   reloadPage();
                 }).catch((error) => {
@@ -672,7 +693,7 @@ function updateTip(newTip){
             const wordId = doc.id;
             
             const tipsRef = wordsRef.doc(wordId).collection("tips");
-            tipsRef.doc(selectedItemTip).update({ nameTips: newTip }).then(() => {
+            tipsRef.doc(selectedItemTip).update({ nameTips: newTip.toLowerCase() }).then(() => {
               console.log("Dica atualizada com sucesso!");
               reloadPage();
             }).catch((error) => {
@@ -697,7 +718,7 @@ function updateTip(newTip){
         querySnapshot.forEach((doc) => {
           const themeId = doc.id;
           const wordsRef = themeRef.doc(themeId).collection("words");
-          wordsRef.doc(selectedItemWord).update({ namewords: newWord }).then(() => {
+          wordsRef.doc(selectedItemWord).update({ namewords: newWord.toLowerCase() }).then(() => {
             console.log("Palavra atualizada com sucesso!");
             reloadPage();
           }).catch((error) => {
@@ -714,7 +735,7 @@ function updateTip(newTip){
 //theme
   function updateTheme(newTheme) {
     if (selectedItemTheme) {
-      themeRef.doc(selectedItemTheme).update({ nametheme: newTheme }).then(() => {
+      themeRef.doc(selectedItemTheme).update({ nametheme: newTheme.toLowerCase() }).then(() => {
         console.log("Tema atualizado com sucesso!");
         reloadPage();
       }).catch((error) => {
