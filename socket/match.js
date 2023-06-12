@@ -1,15 +1,31 @@
-var socket = io.connect("http://localhost:3000");
+var socket = io.connect("https://gforca.onrender.com");
 
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
 const nivel = params.get('nivel');
+
+const dificuldade = document.getElementById('difilcudade')
+const valorPartida = document.getElementById('valorPartida')
+
+if(nivel == 1){
+    dificuldade.innerText = "Fácil"
+    valorPartida.innerText = "200"
+
+}else if(nivel == 2){
+    dificuldade.innerText = "Médio"
+    valorPartida.innerText = "500"
+
+}else{
+    dificuldade.innerText = "Difícil"
+    valorPartida.innerText = "1000"
+}
 
 firebase.auth().onAuthStateChanged(user => {
 
     const userId = user.uid;
     const player = { userId, nivel }
 
-    socket.emit('create-room', (player));
+    // socket.emit('create-room', (player));
 
 });
 
@@ -30,6 +46,8 @@ socket.on('redirect', (room) => {
         window.location.href = "versus.html?room=" + room;
     }, 3000);
 })
+
+
 
 socket.on('checkReady', (player) => {
     const checkBox1P = document.getElementById("checkboxPlayer1");
@@ -143,8 +161,10 @@ function words(roomId) {
             const dTheme = randomWord.theme.toUpperCase();
             const dTips = randomWord.tips[0].nameTips;
 
-            const data ={randomWord: randomWord, 
-                         roomId: roomId}
+            const data = {
+                randomWord: randomWord,
+                roomId: roomId
+            }
 
             socket.emit("words", (data));
 
@@ -152,6 +172,6 @@ function words(roomId) {
 
 }
 
-function sair(){
+function sair() {
     window.location.href = "index.html";
 }

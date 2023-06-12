@@ -1,4 +1,4 @@
-var socket = io.connect("http://localhost:3000");
+var socket = io.connect("https://gforca.onrender.com");
 
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
@@ -75,7 +75,7 @@ socket.on("winner", (player) => {
 })
 
 async function takePartida() {
-    const result = await fetch("http://localhost:3000/partida/" + room);
+    const result = await fetch("https://gforca.onrender.com/partida/" + room);
     const partida = await result.json();
     return partida;
 }
@@ -143,7 +143,12 @@ function checkLetter(letter, button, hiddenWord, wordLetters, player) {
 
             if (bodyPartsP1 === maxBodyParts) {
 
-                showModalLoser()
+                showModalLoser();
+                defeat = {
+                    player: player,
+                    roomId: room
+                }
+                socket.emit("defeat", (defeat));
                 //verificarEAtualizarMoedas(-100)
 
             } else {
@@ -166,7 +171,12 @@ function checkLetter(letter, button, hiddenWord, wordLetters, player) {
 
             if (bodyPartsP2 === maxBodyParts) {
 
-                showModalLoser()
+                showModalLoser();
+                defeat = {
+                    player: player,
+                    roomId: room
+                }
+                socket.emit("defeat", (defeat));
                 //verificarEAtualizarMoedas(-100)
 
             } else {

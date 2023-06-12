@@ -78,6 +78,6 @@ btnFacil.addEventListener('click' , ()=>{
 
   btnDificil.addEventListener('click' , ()=>{
 
-    const url = "match.html?nivel=" + 2;
+    const url = "match.html?nivel=" + 3;
     window.location.href = url;
   })
