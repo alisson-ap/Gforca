@@ -56,7 +56,6 @@ firebase.auth().onAuthStateChanged((user) => {
 
 
 
-
 btnFacil.addEventListener('click' , ()=>{
   // getRandomWordWithTips()
   //   palavra = dWord
