@@ -19,7 +19,7 @@ firebase.auth().onAuthStateChanged((user) => {
           const nome = data.name
 
           const userId = user.uid;
-          const player = { userId, nivel}
+          const player = { userId, nivel, nome}
 
           socket.emit('create-room', (player));
 

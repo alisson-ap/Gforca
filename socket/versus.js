@@ -1,8 +1,27 @@
-var socket = io.connect("https://gforca.onrender.com");
+var socket = io.connect("http://localhost:3000");
 
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
 const room = params.get('room');
+const nivelSala = params.get('nivel');
+
+let premio;
+let derrota;
+
+if (parseInt(nivelSala) === 1) {
+
+    premio = 50;
+    derrota = -50
+} else if (parseInt(nivelSala) === 2) {
+    premio = 125
+    derrota - 125
+} else if (parseInt(nivelSala) === 3) {
+    premio = 250
+    derrota - 125
+}
+
+console.log(premio);
+console.log(derrota);
 
 socket.emit("takeRoom", (room));
 
@@ -68,22 +87,26 @@ socket.on("incrementLife", (player) => {
 
 socket.on("loser", (player) => {
     if (player) {
+        verificarEAtualizarMoedas(derrota);
         showModalLoser();
     } else {
+        verificarEAtualizarMoedas(derrota);
         showModalLoser();
     }
 });
 
 socket.on("winner", (player) => {
     if (player) {
+        verificarEAtualizarMoedas(premio);
         showModalWin();
     } else {
+        verificarEAtualizarMoedas(premio);
         showModalWin();
     }
 })
 
 async function takePartida() {
-    const result = await fetch("https://gforca.onrender.com/partida/" + room);
+    const result = await fetch("http://localhost:3000/partida/" + room);
     const partida = await result.json();
     return partida;
 }
@@ -128,9 +151,9 @@ function checkLetter(letter, button, hiddenWord, wordLetters, player) {
             player: player,
             roomId: room
         }
+        verificarEAtualizarMoedas(premio)
         socket.emit("victory", (victory));
         showModalWin();
-        verificarEAtualizarMoedas(premio)
         // stopTimer()
 
         //location.reload();
@@ -150,14 +173,13 @@ function checkLetter(letter, button, hiddenWord, wordLetters, player) {
             drawBodyPart(bodyPartsP1, player);
 
             if (bodyPartsP1 === maxBodyParts) {
-
+                verificarEAtualizarMoedas(derrota)
                 showModalLoser();
                 defeat = {
                     player: player,
                     roomId: room
                 }
                 socket.emit("defeat", (defeat));
-                //verificarEAtualizarMoedas(-100)
 
             } else {
                 //alert("Letra incorreta. Tente novamente.");
@@ -178,14 +200,13 @@ function checkLetter(letter, button, hiddenWord, wordLetters, player) {
             drawBodyPart(bodyPartsP2, player);
 
             if (bodyPartsP2 === maxBodyParts) {
-
+                verificarEAtualizarMoedas(derrota)
                 showModalLoser();
                 defeat = {
                     player: player,
                     roomId: room
                 }
                 socket.emit("defeat", (defeat));
-                //verificarEAtualizarMoedas(-100)
 
             } else {
                 //alert("Letra incorreta. Tente novamente.");
@@ -454,12 +475,14 @@ firebase.auth().onAuthStateChanged(user => {
         const btnSair = document.getElementById('sair')
 
         btnSair.addEventListener('click', function () {
+            verificarEAtualizarMoedas(derrota);
             defeat = {
                 player: player.player,
                 roomId: room
             }
             socket.emit("defeat", (defeat));
-            window.location.href = "index.html";
+            setTimeout(()=>{window.location.href = "index.html"}, 1000)
+            
         })
 
         const btnArricar = document.getElementById("enviarArricar")
@@ -470,9 +493,9 @@ firebase.auth().onAuthStateChanged(user => {
 
             if (inputArriscar.trim() !== "") {
                 if (inputArriscar === dWord) {
-                    closeModalArriscar()
+                    verificarEAtualizarMoedas(premio);
+                    closeModalArriscar();
                     showModalWin("Parabéns, você acertou a palavra!")
-                    verificarEAtualizarMoedas(premio)
                     victory = {
                         player: player.player,
                         roomId: room
@@ -480,6 +503,7 @@ firebase.auth().onAuthStateChanged(user => {
                     socket.emit("victory", (victory));
                     // stopTimer()
                 } else {
+                    verificarEAtualizarMoedas(derrota);
                     closeModalArriscar()
                     showModalLoser("Você errou a palavra! A palavra correta era " + dWord)
                     defeat = {
@@ -487,7 +511,6 @@ firebase.auth().onAuthStateChanged(user => {
                         roomId: room
                     }
                     socket.emit("defeat", (defeat));
-                    //verificarEAtualizarMoedas(-100)
                 }
             } else {
                 // Caso o input esteja em branco ou nulo

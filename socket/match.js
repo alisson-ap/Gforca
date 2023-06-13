@@ -1,4 +1,4 @@
-var socket = io.connect("https://gforca.onrender.com");
+var socket = io.connect("http://localhost:3000");
 
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
@@ -9,15 +9,15 @@ const valorPartida = document.getElementById('valorPartida')
 
 if(nivel == 1){
     dificuldade.innerText = "Fácil"
-    valorPartida.innerText = "200"
+    valorPartida.innerText = "100"
 
 }else if(nivel == 2){
     dificuldade.innerText = "Médio"
-    valorPartida.innerText = "500"
+    valorPartida.innerText = "250"
 
 }else{
     dificuldade.innerText = "Difícil"
-    valorPartida.innerText = "1000"
+    valorPartida.innerText = "500"
 }
 
 firebase.auth().onAuthStateChanged(user => {
@@ -43,7 +43,7 @@ socket.on('redirect', (room) => {
     words(room);
     showLoading();
     setTimeout(() => {
-        window.location.href = "versus.html?room=" + room;
+        window.location.href = "versus.html?room=" + room +"&nivel="+nivel;
     }, 3000);
 })
 
