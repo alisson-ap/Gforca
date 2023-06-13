@@ -457,13 +457,6 @@ function drawBodyPart(imgValor, player) {
   }
 }
 
-
-//botão sair  
-const btnSair = document.getElementById('sair')
-btnSair.addEventListener('click', function () {
-  window.location.href = "index.html";
-})
-
 const roundPlayer = document.getElementById('roundPlayer');
 
 // informaçoes do perfil do jogador

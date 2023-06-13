@@ -9,6 +9,8 @@ socket.emit("takeRoom", (room));
 socket.on("decrement", (player) => {
     if (player) {
         keyboardEnable();
+        facilitador5.disabled = false;
+
         bodyPartsP1++;
         drawBodyPart(bodyPartsP1, player);
         roundPlayer.innerHTML = "Player 2 jogando..."
@@ -17,6 +19,8 @@ socket.on("decrement", (player) => {
 
     } else {
         keyboardEnable();
+        facilitador5.disabled = false;
+
         console.log("Opa tela do player 1");
         bodyPartsP2++;
         drawBodyPart(bodyPartsP2, player);
@@ -33,6 +37,9 @@ socket.on("correct", (player) => {
         roundPlayer.innerHTML = "Player 2 jogando..."
 
         keyboardEnable();
+
+        facilitador5.disabled = false;
+
     } else {
         console.log("tela do player 1");
 
@@ -40,6 +47,7 @@ socket.on("correct", (player) => {
         roundPlayer.innerHTML = "Player 1 jogando..."
 
         keyboardEnable();
+        facilitador5.disabled = false;
 
     }
 });
@@ -66,10 +74,10 @@ socket.on("loser", (player) => {
     }
 });
 
-socket.on("winner", (player) => { 
-    if(player){
+socket.on("winner", (player) => {
+    if (player) {
         showModalWin();
-    }else{
+    } else {
         showModalWin();
     }
 })
@@ -238,6 +246,7 @@ firebase.auth().onAuthStateChanged(user => {
                 checkLetter(letter, button, hiddenWord, wordLetters, player.player);
 
                 keyboardDisable();
+                facilitador5.disabled = true;
             });
         }
 
@@ -260,6 +269,7 @@ firebase.auth().onAuthStateChanged(user => {
                     dPlayer2.innerHTML = "Player 2 - " + doc.data().name;
                     moedasPerfil.innerHTML = doc.data().money;
                     keyboardDisable();
+                    facilitador5.disabled = true;
                 });
 
             usersRef.doc(partida.player1.id).get()
@@ -440,6 +450,17 @@ firebase.auth().onAuthStateChanged(user => {
             }
             // Restante do código relacionado ao facilitador1
         });
+
+        const btnSair = document.getElementById('sair')
+
+        btnSair.addEventListener('click', function () {
+            defeat = {
+                player: player.player,
+                roomId: room
+            }
+            socket.emit("defeat", (defeat));
+            window.location.href = "index.html";
+        })
 
         const btnArricar = document.getElementById("enviarArricar")
 
