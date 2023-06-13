@@ -7,15 +7,15 @@ const nivel = params.get('nivel');
 const dificuldade = document.getElementById('difilcudade')
 const valorPartida = document.getElementById('valorPartida')
 
-if(nivel == 1){
+if (nivel == 1) {
     dificuldade.innerText = "Fácil"
     valorPartida.innerText = "100"
 
-}else if(nivel == 2){
+} else if (nivel == 2) {
     dificuldade.innerText = "Médio"
     valorPartida.innerText = "250"
 
-}else{
+} else {
     dificuldade.innerText = "Difícil"
     valorPartida.innerText = "500"
 }
@@ -43,7 +43,7 @@ socket.on('redirect', (room) => {
     words(room);
     showLoading();
     setTimeout(() => {
-        window.location.href = "versus.html?room=" + room +"&nivel="+nivel;
+        window.location.href = "versus.html?room=" + room + "&nivel=" + nivel;
     }, 3000);
 })
 
@@ -171,6 +171,7 @@ function words(roomId) {
         });
 
 }
+
 
 function sair() {
     window.location.href = "index.html";
