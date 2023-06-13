@@ -1,4 +1,4 @@
-var socket = io.connect("http://localhost:3000");
+var socket = io.connect("https://gforca.onrender.com");
 
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);

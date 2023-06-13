@@ -1,4 +1,4 @@
-var socket = io.connect("http://localhost:3000");
+var socket = io.connect("https://gforca.onrender.com");
 
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
@@ -106,7 +106,7 @@ socket.on("winner", (player) => {
 })
 
 async function takePartida() {
-    const result = await fetch("http://localhost:3000/partida/" + room);
+    const result = await fetch("https://gforca.onrender.com/partida/" + room);
     const partida = await result.json();
     return partida;
 }
